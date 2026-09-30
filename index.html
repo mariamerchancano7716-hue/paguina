@@ -1,0 +1,6528 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skin Eliza & Juli 💕</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#fff5fa,#f4edff,#eef7ff);
+    color:#4b4050;
+    min-height:100vh;
+}
+
+/* ================= WELCOME ================= */
+
+#welcome{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+    background:linear-gradient(135deg,#ffdce9,#eadcff,#dff4ff);
+}
+
+.welcomeBox{
+    width:100%;
+    max-width:470px;
+    background:rgba(255,255,255,.94);
+    padding:40px 28px;
+    border-radius:35px;
+    text-align:center;
+    box-shadow:0 20px 50px rgba(120,80,130,.18);
+    animation:appear .8s ease;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.lunaAvatar{
+    width:125px;
+    height:125px;
+    object-fit:cover;
+    border-radius:50%;
+    margin-bottom:18px;
+    background:#ffe5f0;
+    padding:8px;
+    box-shadow:0 8px 25px rgba(180,100,150,.2);
+    animation:floatLuna 3s ease-in-out infinite;
+}
+
+@keyframes floatLuna{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-7px);}
+}
+
+.welcomeBox h1{
+    color:#b85c91;
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.welcomeBox p{
+    line-height:1.6;
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    border:2px solid #f0c8df;
+    border-radius:16px;
+    outline:none;
+    font-size:16px;
+    margin-bottom:15px;
+}
+
+input:focus{
+    border-color:#c982ac;
+}
+
+.mainBtn{
+    border:none;
+    background:linear-gradient(135deg,#d889b5,#a989d8);
+    color:white;
+    padding:14px 25px;
+    border-radius:18px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.mainBtn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(150,100,170,.2);
+}
+
+.mainBtn:active{
+    transform:scale(.97);
+}
+
+/* ================= APP ================= */
+
+#app{
+    display:none;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #f1dbe8;
+    padding:12px 18px;
+}
+
+.headerTop{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:bold;
+    color:#a65388;
+    font-size:19px;
+}
+
+.lunaMini{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#ffe5f0;
+    padding:3px;
+}
+
+.pointsBox{
+    background:#fff0f7;
+    color:#a65388;
+    padding:9px 14px;
+    border-radius:14px;
+    font-weight:bold;
+}
+
+nav{
+    max-width:1200px;
+    margin:12px auto 0;
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding-bottom:3px;
+}
+
+.navBtn{
+    border:none;
+    background:#f8eff6;
+    color:#76566d;
+    padding:9px 13px;
+    border-radius:13px;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:.2s;
+}
+
+.navBtn:hover,
+.navBtn.active{
+    background:#d990b7;
+    color:white;
+}
+
+/* ================= SECTIONS ================= */
+
+main{
+    max-width:1200px;
+    margin:auto;
+    padding:25px 18px 60px;
+}
+
+.appSection{
+    display:none;
+    animation:sectionIn .45s ease;
+}
+
+.appSection.active{
+    display:block;
+}
+
+@keyframes sectionIn{
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.hero{
+    background:white;
+    border-radius:28px;
+    padding:30px;
+    margin-bottom:25px;
+    box-shadow:0 10px 30px rgba(100,70,100,.08);
+}
+
+.hero h1{
+    color:#ad568c;
+    margin-bottom:10px;
+}
+
+.hero p{
+    line-height:1.7;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:25px;
+    overflow:hidden;
+    padding:15px 15px 25px;
+    box-shadow:0 10px 30px rgba(100,70,100,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.cardImage{
+    width:100%;
+    height:190px;
+    object-fit:cover;
+    border-radius:20px;
+    margin-bottom:18px;
+    display:block;
+}
+
+.card h2,
+.card h3,
+.card p{
+    margin-left:10px;
+    margin-right:10px;
+}
+
+.card h2,
+.card h3{
+    color:#aa5b8b;
+    margin-bottom:8px;
+}
+
+.card p{
+    line-height:1.6;
+    margin-bottom:15px;
+}
+
+.sectionCover{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    border-radius:28px;
+    margin-bottom:22px;
+}
+
+/* ================= BUTTONS ================= */
+
+button{
+    font-family:inherit;
+}
+
+.smallBtn{
+    border:none;
+    background:#d990b7;
+    color:white;
+    padding:10px 15px;
+    border-radius:13px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.smallBtn:hover{
+    transform:translateY(-2px);
+    background:#bd6f9c;
+}
+
+/* ================= CHAT ================= */
+
+.chatBox{
+    background:white;
+    border-radius:28px;
+    padding:20px;
+    box-shadow:0 10px 30px rgba(100,70,100,.08);
+}
+
+.chatMessages{
+    height:430px;
+    overflow-y:auto;
+    padding:10px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.message{
+    max-width:82%;
+    padding:13px 16px;
+    border-radius:18px;
+    line-height:1.55;
+    animation:messageIn .3s ease;
+    white-space:pre-line;
+}
+
+@keyframes messageIn{
+    from{
+        opacity:0;
+        transform:translateY(7px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.lunaMessage{
+    align-self:flex-start;
+    background:#f9eaf3;
+}
+
+.userMessage{
+    align-self:flex-end;
+    background:#e9e0f7;
+}
+
+.chatInput{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.chatInput input{
+    margin:0;
+}
+
+.typing{
+    display:flex;
+    gap:4px;
+    padding:10px 15px;
+    background:#f9eaf3;
+    width:max-content;
+    border-radius:16px;
+}
+
+.typing span{
+    width:6px;
+    height:6px;
+    background:#b96b98;
+    border-radius:50%;
+    animation:typing 1s infinite;
+}
+
+.typing span:nth-child(2){
+    animation-delay:.15s;
+}
+
+.typing span:nth-child(3){
+    animation-delay:.3s;
+}
+
+@keyframes typing{
+    0%,100%{
+        opacity:.3;
+        transform:translateY(0);
+    }
+    50%{
+        opacity:1;
+        transform:translateY(-3px);
+    }
+}
+
+/* ================= LISTS ================= */
+
+.infoBox{
+    background:#fff8fc;
+    padding:18px;
+    border-radius:18px;
+    margin:15px 0;
+    line-height:1.7;
+}
+
+.infoBox ul{
+    margin-left:20px;
+}
+
+.infoBox li{
+    margin:7px 0;
+}
+
+/* ================= TRACKERS ================= */
+
+.trackerGrid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:15px;
+}
+
+.tracker{
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(100,70,100,.07);
+}
+
+.tracker h3{
+    color:#a65388;
+    margin-bottom:12px;
+}
+
+.range{
+    width:100%;
+}
+
+.moods{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.moodBtn,
+.symptomBtn{
+    border:2px solid #edd5e3;
+    background:white;
+    padding:9px 12px;
+    border-radius:13px;
+    cursor:pointer;
+}
+
+.moodBtn.selected,
+.symptomBtn.selected{
+    background:#d990b7;
+    color:white;
+    border-color:#d990b7;
+}
+
+textarea{
+    width:100%;
+    min-height:120px;
+    border:2px solid #eed8e6;
+    border-radius:16px;
+    padding:14px;
+    resize:vertical;
+    outline:none;
+    font-family:inherit;
+}
+
+/* ================= CALENDAR ================= */
+
+.calendarControls{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.calendarControls input{
+    flex:1;
+    min-width:170px;
+}
+
+.calendar{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:6px;
+    margin-top:15px;
+}
+
+.dayName{
+    text-align:center;
+    font-weight:bold;
+    color:#a65388;
+    padding:7px;
+}
+
+.day{
+    min-height:55px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:13px;
+    background:#faf5f8;
+    cursor:pointer;
+}
+
+.day.period{
+    background:#efb1c8;
+    color:#75394e;
+}
+
+.day.fertile{
+    background:#dcd0f1;
+}
+
+.day.ovulation{
+    background:#b99ad8;
+    color:white;
+}
+
+.day.today{
+    outline:3px solid #d990b7;
+}
+
+/* ================= MISSIONS ================= */
+
+.mission{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    background:white;
+    padding:18px;
+    border-radius:20px;
+    margin-bottom:12px;
+    box-shadow:0 7px 20px rgba(100,70,100,.07);
+}
+
+.mission.done{
+    opacity:.65;
+}
+
+.mission p{
+    margin-top:5px;
+}
+
+/* ================= ACHIEVEMENTS ================= */
+
+.badges{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+}
+
+.badge{
+    background:white;
+    border-radius:22px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(100,70,100,.07);
+    opacity:.4;
+    transition:.3s;
+}
+
+.badge.unlocked{
+    opacity:1;
+    transform:translateY(-3px);
+}
+
+.badgeIcon{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:650px){
+
+    .welcomeBox{
+        padding:30px 20px;
+    }
+
+    .welcomeBox h1{
+        font-size:26px;
+    }
+
+    header{
+        padding:10px;
+    }
+
+    .brand{
+        font-size:16px;
+    }
+
+    .lunaMini{
+        width:36px;
+        height:36px;
+    }
+
+    main{
+        padding:18px 12px 50px;
+    }
+
+    .hero{
+        padding:22px;
+    }
+
+    .sectionCover{
+        height:180px;
+    }
+
+    .chatMessages{
+        height:380px;
+    }
+
+    .chatInput{
+        flex-direction:column;
+    }
+
+    .calendar{
+        gap:3px;
+    }
+
+    .day{
+        min-height:45px;
+        font-size:13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= BIENVENIDA ================= -->
+
+<div id="welcome">
+
+    <div class="welcomeBox">
+
+        <img
+            class="lunaAvatar"
+            src="https://api.dicebear.com/9.x/bottts-neutral/svg?seed=Luna&backgroundColor=fce7f3"
+            alt="Avatar de Luna"
+        >
+
+        <h1>Skin Eliza & Juli 💕</h1>
+
+        <p>
+            Hola ✨ Soy Luna, tu asistente dentro de la aplicación.
+            Aquí puedes encontrar ideas de skincare, maquillaje,
+            cabello, uñas, bienestar y mucho más.
+        </p>
+
+        <input
+            type="text"
+            id="nameInput"
+            placeholder="Escribe tu nombre"
+            autocomplete="off"
+        >
+
+        <button class="mainBtn" type="button" id="startButton">
+            Comenzar ✨
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= APP ================= -->
+
+<div id="app">
+
+<header>
+
+    <div class="headerTop">
+
+        <div class="brand">
+
+            <img
+                class="lunaMini"
+                src="https://api.dicebear.com/9.x/bottts-neutral/svg?seed=Luna&backgroundColor=fce7f3"
+                alt="Luna"
+            >
+
+            <span>Skin Eliza & Juli 💕</span>
+
+        </div>
+
+        <div class="pointsBox">
+            ⭐ <span id="points">0</span> puntos
+        </div>
+
+    </div>
+
+    <nav>
+
+        <button class="navBtn active" onclick="showSection('home')">Inicio</button>
+        <button class="navBtn" onclick="showSection('luna')">Luna</button>
+        <button class="navBtn" onclick="showSection('skincare')">Skincare</button>
+        <button class="navBtn" onclick="showSection('makeup')">Maquillaje</button>
+        <button class="navBtn" onclick="showSection('hair')">Cabello</button>
+        <button class="navBtn" onclick="showSection('nails')">Uñas</button>
+        <button class="navBtn" onclick="showSection('cycle')">Mi ciclo</button>
+        <button class="navBtn" onclick="showSection('missions')">Misiones</button>
+        <button class="navBtn" onclick="showSection('achievements')">Logros</button>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+<!-- ================= HOME ================= -->
+
+<section id="home" class="appSection active">
+
+    <div class="hero">
+
+        <h1>Hola, <span id="userName"></span> 💕</h1>
+
+        <p>
+            Bienvenida a tu espacio de cuidado y bienestar.
+            Puedes hablar con Luna, explorar las diferentes categorías
+            o completar misiones para conseguir puntos.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <img class="cardImage"
+            src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=700&q=80">
+
+            <h2>Skincare</h2>
+
+            <p>
+                Aprende sobre limpieza, hidratación,
+                protector solar y rutinas sencillas.
+            </p>
+
+            <button class="smallBtn" onclick="showSection('skincare')">
+                Entrar
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <img class="cardImage"
+            src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=700&q=80">
+
+            <h2>Maquillaje</h2>
+
+            <p>
+                Encuentra ideas para maquillajes naturales,
+                sencillos, de salida y para los ojos.
+            </p>
+
+            <button class="smallBtn" onclick="showSection('makeup')">
+                Entrar
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <img class="cardImage"
+            src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&q=80">
+
+            <h2>Cabello</h2>
+
+            <p>
+                Consejos para cuidar tu cabello,
+                peinados, colas y trenzas.
+            </p>
+
+            <button class="smallBtn" onclick="showSection('hair')">
+                Entrar
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <img class="cardImage"
+            src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=700&q=80">
+
+            <h2>Uñas</h2>
+
+            <p>
+                Ideas para cuidar tus uñas y
+                aprender diferentes estilos.
+            </p>
+
+            <button class="smallBtn" onclick="showSection('nails')">
+                Entrar
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <img class="cardImage"
+            src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=700&q=80">
+
+            <h2>Mi ciclo</h2>
+
+            <p>
+                Lleva un registro de tu ciclo,
+                estado de ánimo y algunos hábitos.
+            </p>
+
+            <button class="smallBtn" onclick="showSection('cycle')">
+                Entrar
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <img class="cardImage"
+            src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=700&q=80">
+
+            <h2>Misiones</h2>
+
+            <p>
+                Completa pequeños retos de autocuidado
+                y gana puntos.
+            </p>
+
+            <button class="smallBtn" onclick="showSection('missions')">
+                Ver misiones
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= LUNA ================= -->
+
+<section id="luna" class="appSection">
+
+    <div class="hero">
+
+        <h1>Habla con Luna 🌙</h1>
+
+        <p>
+            Puedes preguntarme sobre belleza, bienestar,
+            la aplicación o simplemente conversar conmigo.
+        </p>
+
+    </div>
+
+    <div class="chatBox">
+
+        <div id="chatMessages" class="chatMessages">
+
+            <div class="message lunaMessage">
+                Hola 💕 Soy Luna. Puedes preguntarme lo que quieras,
+                contarme cómo te sientes o simplemente hablar conmigo.
+                No tienes que hablar solamente de belleza.
+            </div>
+
+        </div>
+
+        <div class="chatInput">
+
+            <input
+                type="text"
+                id="chatInput"
+                placeholder="Escríbele algo a Luna..."
+                autocomplete="off"
+            >
+
+            <button class="mainBtn" id="sendButton">
+                Enviar
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SKINCARE ================= -->
+
+<section id="skincare" class="appSection">
+
+    <img class="sectionCover"
+    src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=80">
+
+    <div class="hero">
+
+        <h1>Skincare ✨</h1>
+
+        <p>
+            El skincare son los cuidados que hacemos para mantener
+            nuestra piel limpia, hidratada y protegida.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🌸 Limpieza</h3>
+            <p>
+                Ayuda a retirar suciedad, sudor y productos acumulados.
+                Lo ideal es hacerlo suavemente y sin frotar demasiado.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>💧 Hidratación</h3>
+            <p>
+                Una crema hidratante ayuda a mantener la piel cómoda
+                y a conservar su humedad.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>☀️ Protector solar</h3>
+            <p>
+                Ayuda a proteger la piel de la radiación ultravioleta.
+                Es importante usarlo durante el día.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🌙 Rutina de noche</h3>
+            <p>
+                Puedes comenzar con una limpieza suave y después
+                aplicar hidratante.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="infoBox">
+
+        <h3>Rutina básica de mañana</h3>
+
+        <ul>
+            <li>Limpieza suave.</li>
+            <li>Hidratante.</li>
+            <li>Protector solar.</li>
+        </ul>
+
+        <br>
+
+        <h3>Rutina básica de noche</h3>
+
+        <ul>
+            <li>Limpieza.</li>
+            <li>Hidratación.</li>
+        </ul>
+
+    </div>
+
+    <button class="smallBtn"
+    onclick="openVideo('rutina skincare sencilla para principiantes')">
+        ▶ Ver tutorial
+    </button>
+
+</section>
+
+
+<!-- ================= MAKEUP ================= -->
+
+<section id="makeup" class="appSection">
+
+    <img class="sectionCover"
+    src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80">
+
+    <div class="hero">
+
+        <h1>Maquillaje 💄</h1>
+
+        <p>
+            El maquillaje puede utilizarse para expresar creatividad,
+            experimentar con colores o simplemente disfrutar de una
+            rutina de belleza.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🌷 Maquillaje sencillo</h3>
+            <p>
+                Una opción natural con hidratación, un poco de corrector
+                si quieres usarlo, rubor y brillo o bálsamo para labios.
+            </p>
+
+            <button class="smallBtn"
+            onclick="openVideo('maquillaje sencillo natural paso a paso')">
+                Tutorial
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>✨ Maquillaje natural</h3>
+            <p>
+                Puedes usar tonos suaves y concentrarte en que el resultado
+                se vea ligero.
+            </p>
+
+            <button class="smallBtn"
+            onclick="openVideo('maquillaje natural juvenil')">
+                Tutorial
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>🌙 Maquillaje para salir</h3>
+            <p>
+                Puedes agregar sombras, delineado o un color diferente
+                en los labios.
+            </p>
+
+            <button class="smallBtn"
+            onclick="openVideo('maquillaje para salir sencillo')">
+                Tutorial
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>👁️ Maquillaje de ojos</h3>
+            <p>
+                Aprende diferentes formas de combinar sombras y hacer
+                un delineado sencillo.
+            </p>
+
+            <button class="smallBtn"
+            onclick="openVideo('maquillaje de ojos sencillo')">
+                Tutorial
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= HAIR ================= -->
+
+<section id="hair" class="appSection">
+
+    <img class="sectionCover"
+    src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80">
+
+    <div class="hero">
+
+        <h1>Cabello 💇‍♀️</h1>
+
+        <p>
+            Cuidar el cabello incluye mantenerlo limpio, desenredarlo
+            con cuidado y evitar maltratarlo innecesariamente.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🌸 Cuidados básicos</h3>
+            <p>
+                Lava tu cabello según lo necesites, desenreda con cuidado
+                y evita usar demasiado calor.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🎀 Trenza</h3>
+            <p>
+                Una trenza es un peinado que se forma entrelazando
+                diferentes mechones de cabello.
+            </p>
+
+            <button class="smallBtn"
+            onclick="openVideo('trenza fácil paso a paso')">
+                Tutorial
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>✨ Cola</h3>
+            <p>
+                Una cola es un peinado sencillo que recoge el cabello
+                en la parte posterior de la cabeza.
+            </p>
+
+            <button class="smallBtn"
+            onclick="openVideo('peinados cola fáciles')">
+                Tutorial
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>💫 Peinados</h3>
+            <p>
+                Puedes probar diferentes peinados dependiendo de la
+                ocasión y de lo cómodo que te resulte.
+            </p>
+
+            <button class="smallBtn"
+            onclick="openVideo('peinados fáciles para cabello')">
+                Ver ideas
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= NAILS ================= -->
+
+<section id="nails" class="appSection">
+
+    <img class="sectionCover"
+    src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1200&q=80">
+
+    <div class="hero">
+
+        <h1>Uñas 💅</h1>
+
+        <p>
+            El cuidado de las uñas incluye mantenerlas limpias,
+            cortarlas con cuidado y evitar lastimarlas.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🌷 Cuidado básico</h3>
+            <p>
+                Mantén tus uñas limpias y evita arrancarlas o morderlas.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🎨 Ideas</h3>
+            <p>
+                Puedes experimentar con colores, diseños sencillos
+                o estilos minimalistas.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>✨ Manicure</h3>
+            <p>
+                Una manicure puede incluir limpieza, limado y decoración
+                de las uñas.
+            </p>
+
+            <button class="smallBtn"
+            onclick="openVideo('manicure sencillo paso a paso')">
+                Tutorial
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CICLO ================= -->
+
+<section id="cycle" class="appSection">
+
+    <img class="sectionCover"
+    src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80">
+
+    <div class="hero">
+
+        <h1>Mi ciclo 🌷</h1>
+
+        <p>
+            Aquí puedes llevar un registro personal de tu ciclo menstrual,
+            emociones, energía, sueño, agua y algunas notas.
+        </p>
+
+    </div>
+
+    <div class="infoBox">
+
+        <h3>¿Qué es el ciclo menstrual?</h3>
+
+        <p>
+            Es el conjunto de cambios que ocurren en el cuerpo durante
+            un ciclo. Puede variar de una persona a otra y también puede
+            cambiar de un mes a otro.
+        </p>
+
+    </div>
+
+    <div class="calendarControls">
+
+        <input type="date" id="startDate">
+
+        <input
+            type="number"
+            id="cycleLength"
+            value="28"
+            min="20"
+            max="45"
+            placeholder="Duración del ciclo"
+        >
+
+        <input
+            type="number"
+            id="periodLength"
+            value="5"
+            min="2"
+            max="10"
+            placeholder="Duración del periodo"
+        >
+
+        <button class="mainBtn" onclick="calculateCycle()">
+            Calcular
+        </button>
+
+    </div>
+
+    <h2 id="calendarTitle"></h2>
+
+    <div id="calendar" class="calendar"></div>
+
+    <div id="phaseInfo" class="infoBox">
+        Selecciona una fecha del calendario para ver información.
+    </div>
+
+    <div class="trackerGrid">
+
+        <div class="tracker">
+
+            <h3>Estado de ánimo</h3>
+
+            <div class="moods">
+
+                <button class="moodBtn" onclick="setMood(this,'Feliz')">
+                    Feliz
+                </button>
+
+                <button class="moodBtn" onclick="setMood(this,'Tranquila')">
+                    Tranquila
+                </button>
+
+                <button class="moodBtn" onclick="setMood(this,'Triste')">
+                    Triste
+                </button>
+
+                <button class="moodBtn" onclick="setMood(this,'Cansada')">
+                    Cansada
+                </button>
+
+                <button class="moodBtn" onclick="setMood(this,'Estresada')">
+                    Estresada
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="tracker">
+
+            <h3>Energía: <span id="energyValue">3</span>/5</h3>
+
+            <input
+                class="range"
+                type="range"
+                id="energy"
+                min="1"
+                max="5"
+                value="3"
+                oninput="document.getElementById('energyValue').textContent=this.value"
+            >
+
+        </div>
+
+
+        <div class="tracker">
+
+            <h3>Sueño: <span id="sleepValue">8</span> horas</h3>
+
+            <input
+                class="range"
+                type="range"
+                id="sleep"
+                min="0"
+                max="12"
+                value="8"
+                oninput="document.getElementById('sleepValue').textContent=this.value"
+            >
+
+        </div>
+
+
+        <div class="tracker">
+
+            <h3>Agua: <span id="waterValue">4</span> vasos</h3>
+
+            <input
+                class="range"
+                type="range"
+                id="water"
+                min="0"
+                max="12"
+                value="4"
+                oninput="document.getElementById('waterValue').textContent=this.value"
+            >
+
+        </div>
+
+    </div>
+
+
+    <div class="infoBox">
+
+        <h3>¿Tienes algún síntoma?</h3>
+
+        <div class="moods">
+
+            <button class="symptomBtn" onclick="toggleSymptom(this)">
+                Cólicos
+            </button>
+
+            <button class="symptomBtn" onclick="toggleSymptom(this)">
+                Dolor de cabeza
+            </button>
+
+            <button class="symptomBtn" onclick="toggleSymptom(this)">
+                Cansancio
+            </button>
+
+            <button class="symptomBtn" onclick="toggleSymptom(this)">
+                Cambios de ánimo
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="infoBox">
+
+        <h3>Mi diario 📝</h3>
+
+        <textarea
+            id="diary"
+            placeholder="Escribe cómo fue tu día..."
+        ></textarea>
+
+        <br><br>
+
+        <button class="mainBtn" onclick="saveDailyRecord()">
+            Guardar registro
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MISIONES ================= -->
+
+<section id="missions" class="appSection">
+
+    <img class="sectionCover"
+    src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80">
+
+    <div class="hero">
+
+        <h1>Misiones ⭐</h1>
+
+        <p>
+            Completa pequeñas actividades para ganar puntos.
+        </p>
+
+    </div>
+
+
+    <div class="mission">
+
+        <div>
+            <strong>💧 Tomar suficiente agua</strong>
+            <p>Recuerda hidratarte durante el día.</p>
+        </div>
+
+        <button class="smallBtn" onclick="mission(this,10)">
+            +10
+        </button>
+
+    </div>
+
+
+    <div class="mission">
+
+        <div>
+            <strong>🧴 Hacer tu rutina de cuidado</strong>
+            <p>Dedica unos minutos a tu rutina.</p>
+        </div>
+
+        <button class="smallBtn" onclick="mission(this,15)">
+            +15
+        </button>
+
+    </div>
+
+
+    <div class="mission">
+
+        <div>
+            <strong>💆‍♀️ Cuidar tu cabello</strong>
+            <p>Haz algo sencillo para cuidar tu cabello.</p>
+        </div>
+
+        <button class="smallBtn" onclick="mission(this,10)">
+            +10
+        </button>
+
+    </div>
+
+
+    <div class="mission">
+
+        <div>
+            <strong>📝 Escribir en tu diario</strong>
+            <p>Escribe cómo te sentiste hoy.</p>
+        </div>
+
+        <button class="smallBtn" onclick="mission(this,15)">
+            +15
+        </button>
+
+    </div>
+
+
+    <div class="mission">
+
+        <div>
+            <strong>🌷 Tomarte un momento para ti</strong>
+            <p>Haz una pausa y descansa un rato.</p>
+        </div>
+
+        <button class="smallBtn" onclick="mission(this,10)">
+            +10
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= LOGROS ================= -->
+
+<section id="achievements" class="appSection">
+
+    <div class="hero">
+
+        <h1>Mis logros 🏆</h1>
+
+        <p>
+            Consigue puntos completando misiones y desbloquea
+            diferentes logros.
+        </p>
+
+    </div>
+
+    <div class="badges">
+
+        <div class="badge" id="badge1">
+            <div class="badgeIcon">🌱</div>
+            <h3>Primer paso</h3>
+            <p>Consigue 10 puntos.</p>
+        </div>
+
+        <div class="badge" id="badge2">
+            <div class="badgeIcon">✨</div>
+            <h3>Comenzando</h3>
+            <p>Consigue 25 puntos.</p>
+        </div>
+
+        <div class="badge" id="badge3">
+            <div class="badgeIcon">💗</div>
+            <h3>Constante</h3>
+            <p>Consigue 50 puntos.</p>
+        </div>
+
+        <div class="badge" id="badge4">
+            <div class="badgeIcon">🌸</div>
+            <h3>Cuidadosa</h3>
+            <p>Consigue 75 puntos.</p>
+        </div>
+
+        <div class="badge" id="badge5">
+            <div class="badgeIcon">👑</div>
+            <h3>Experta</h3>
+            <p>Consigue 100 puntos.</p>
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let points = Number(localStorage.getItem("beautyPoints")) || 0;
+
+let selectedMood = "";
+
+let currentMonth = new Date();
+
+let calendarStartDate = null;
+
+let userName = localStorage.getItem("beautyUser") || "";
+
+let conversation = JSON.parse(
+    localStorage.getItem("lunaConversation") || "[]"
+);
+
+let lastTopic = "";
+
+
+/* =====================================================
+   UTILIDADES
+===================================================== */
+
+function normalizeText(text){
+
+    return text
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g,"")
+        .replace(/[¿?¡!.,;:()[\]"']/g," ")
+        .replace(/\s+/g," ")
+        .trim();
+
+}
+
+
+function containsAny(text,words){
+
+    return words.some(word => text.includes(word));
+
+}
+
+
+function randomItem(array){
+
+    return array[
+        Math.floor(Math.random() * array.length)
+    ];
+
+}
+
+
+/* =====================================================
+   INICIO
+===================================================== */
+
+function startGame(){
+
+    const input = document.getElementById("nameInput");
+
+    const name = input.value.trim();
+
+    if(name === ""){
+
+        input.focus();
+
+        input.placeholder = "Primero escribe tu nombre 💕";
+
+        return;
+
+    }
+
+    userName = name;
+
+    localStorage.setItem("beautyUser",name);
+
+    document.getElementById("userName").textContent = name;
+
+    document.getElementById("welcome").style.display = "none";
+
+    document.getElementById("app").style.display = "block";
+
+    updatePoints();
+
+    showSection("home");
+
+    if(conversation.length === 0){
+
+        addLunaMessage(
+            `¡Holaaa ${name}! 💕 Soy Luna. Me alegra tenerte aquí. Puedes preguntarme sobre belleza, contarme cómo te sientes, preguntarme algo o simplemente conversar conmigo.`
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   CARGAR
+===================================================== */
+
+window.addEventListener("DOMContentLoaded",function(){
+
+    const savedName =
+        localStorage.getItem("beautyUser");
+
+    if(savedName){
+
+        document.getElementById("nameInput").value =
+            savedName;
+
+    }
+
+    updatePoints();
+
+});
+
+
+/* =====================================================
+   EVENTOS
+===================================================== */
+
+document.addEventListener("DOMContentLoaded",function(){
+
+    document.getElementById("startButton")
+        .addEventListener("click",startGame);
+
+    document.getElementById("sendButton")
+        .addEventListener("click",sendMessage);
+
+    document.getElementById("chatInput")
+        .addEventListener("keydown",function(event){
+
+            if(event.key === "Enter"){
+
+                event.preventDefault();
+
+                sendMessage();
+
+            }
+
+        });
+
+    document.getElementById("nameInput")
+        .addEventListener("keydown",function(event){
+
+            if(event.key === "Enter"){
+
+                event.preventDefault();
+
+                startGame();
+
+            }
+
+        });
+
+});
+
+
+/* =====================================================
+   NAVEGACIÓN
+===================================================== */
+
+function showSection(sectionId){
+
+    document.querySelectorAll(".appSection")
+        .forEach(section => {
+
+            section.classList.remove("active");
+
+        });
+
+
+    const selected =
+        document.getElementById(sectionId);
+
+    if(selected){
+
+        selected.classList.add("active");
+
+    }
+
+
+    document.querySelectorAll(".navBtn")
+        .forEach(button => {
+
+            button.classList.remove("active");
+
+            const action =
+                button.getAttribute("onclick");
+
+            if(
+                action &&
+                action.includes("'" + sectionId + "'")
+            ){
+
+                button.classList.add("active");
+
+            }
+
+        });
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   PUNTOS
+===================================================== */
+
+function updatePoints(){
+
+    const element =
+        document.getElementById("points");
+
+    if(element){
+
+        element.textContent = points;
+
+    }
+
+    localStorage.setItem(
+        "beautyPoints",
+        points
+    );
+
+    updateAchievements();
+
+}
+
+
+function addPoints(amount){
+
+    points += amount;
+
+    updatePoints();
+
+}
+
+
+/* =====================================================
+   LOGROS
+===================================================== */
+
+function updateAchievements(){
+
+    const values = [
+
+        [10,"badge1"],
+        [25,"badge2"],
+        [50,"badge3"],
+        [75,"badge4"],
+        [100,"badge5"]
+
+    ];
+
+
+    values.forEach(item => {
+
+        const badge =
+            document.getElementById(item[1]);
+
+        if(!badge) return;
+
+        if(points >= item[0]){
+
+            badge.classList.add("unlocked");
+
+        }else{
+
+            badge.classList.remove("unlocked");
+
+        }
+
+    });
+
+}
+
+
+/* =====================================================
+   CHAT
+===================================================== */
+
+function sendMessage(){
+
+    const input =
+        document.getElementById("chatInput");
+
+    const text =
+        input.value.trim();
+
+    if(text === "") return;
+
+
+    addUserMessage(text);
+
+    input.value = "";
+
+
+    conversation.push({
+        role:"user",
+        text:text
+    });
+
+
+    localStorage.setItem(
+        "lunaConversation",
+        JSON.stringify(conversation)
+    );
+
+
+    const typing =
+        document.createElement("div");
+
+    typing.className = "typing";
+
+    typing.id = "typing";
+
+    typing.innerHTML =
+        "<span></span><span></span><span></span>";
+
+
+    document.getElementById("chatMessages")
+        .appendChild(typing);
+
+    scrollChat();
+
+
+    setTimeout(function(){
+
+        const oldTyping =
+            document.getElementById("typing");
+
+        if(oldTyping){
+
+            oldTyping.remove();
+
+        }
+
+
+        const response =
+            getResponse(text);
+
+
+        addLunaMessage(response.text);
+
+
+        conversation.push({
+            role:"luna",
+            text:response.text
+        });
+
+
+        localStorage.setItem(
+            "lunaConversation",
+            JSON.stringify(conversation)
+        );
+
+
+        if(response.section){
+
+            setTimeout(function(){
+
+                showSection(response.section);
+
+            },500);
+
+        }
+
+    },700 + Math.random()*700);
+
+}
+
+
+function addUserMessage(text){
+
+    const message =
+        document.createElement("div");
+
+    message.className =
+        "message userMessage";
+
+    message.textContent =
+        text;
+
+    document.getElementById("chatMessages")
+        .appendChild(message);
+
+    scrollChat();
+
+}
+
+
+function addLunaMessage(text){
+
+    const message =
+        document.createElement("div");
+
+    message.className =
+        "message lunaMessage";
+
+    message.textContent =
+        text;
+
+    document.getElementById("chatMessages")
+        .appendChild(message);
+
+    scrollChat();
+
+}
+
+
+function scrollChat(){
+
+    const chat =
+        document.getElementById("chatMessages");
+
+    chat.scrollTop =
+        chat.scrollHeight;
+
+}
+
+
+/* =====================================================
+   LUNA - RESPUESTAS
+===================================================== */
+
+function getResponse(originalText){
+
+    const t =
+        normalizeText(originalText);
+
+
+    const name =
+        userName || "💕";
+
+
+    /* SALUDOS */
+
+    if(containsAny(t,[
+
+        "hola",
+        "holaa",
+        "holaaa",
+        "hey",
+        "hello",
+        "buenos dias",
+        "buenas tardes",
+        "buenas noches",
+        "buenas"
+
+    ])){
+
+        return {
+
+            text:randomItem([
+
+                `¡Holaaa ${name}! 💕 ¿Cómo estás? Cuéntame qué tienes en mente.`,
+
+                `¡Hola ${name}! ✨ Aquí estoy. Puedes preguntarme lo que quieras.`,
+
+                `Holiii 💕 Qué bueno verte. ¿Cómo estuvo tu día?`
+
+            ]),
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* QUIÉN ES LUNA */
+
+    if(containsAny(t,[
+
+        "quien eres",
+        "quien es luna",
+        "como te llamas",
+        "cual es tu nombre",
+        "eres una ia",
+        "eres inteligencia artificial",
+        "eres un robot"
+
+    ])){
+
+        return {
+
+            text:"Soy Luna 🌙💕, la asistente de esta aplicación. Estoy aquí para conversar contigo, responder preguntas y ayudarte a usar las diferentes secciones. No soy una persona real, soy un chatbot creado para esta aplicación.",
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* GRACIAS */
+
+    if(containsAny(t,[
+
+        "gracias",
+        "muchas gracias",
+        "te agradezco",
+        "eres genial",
+        "eres buena"
+
+    ])){
+
+        return {
+
+            text:randomItem([
+
+                "Awww 💕 de nada. Me alegra poder ayudarte.",
+
+                "No tienes que agradecerme 🥹💕. Aquí estoy para ayudarte.",
+
+                "De nadaaa ✨. Puedes seguir hablándome cuando quieras."
+
+            ]),
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* DESPEDIDA */
+
+    if(containsAny(t,[
+
+        "adios",
+        "chao",
+        "bye",
+        "nos vemos",
+        "me voy"
+
+    ])){
+
+        return {
+
+            text:`Nos vemos, ${name} 💕. Cuando quieras volver a hablar conmigo, aquí voy a estar. Cuídate mucho ✨.`,
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* SENTIRSE MAL */
+
+    if(containsAny(t,[
+
+        "me siento mal",
+        "estoy triste",
+        "me siento triste",
+        "estoy llorando",
+        "tengo ganas de llorar",
+        "no estoy bien",
+        "me siento rara",
+        "me siento sola",
+        "me siento solo"
+
+    ])){
+
+        return {
+
+            text:"Siento que estés pasando por un momento así 💕. No tienes que fingir que estás bien conmigo. Si quieres, cuéntame qué pasó o qué fue lo que te hizo sentir así. Puedo escucharte y ayudarte a pensar qué podrías hacer ahora mismo. Si esto se siente demasiado difícil, también sería bueno hablar con alguien de confianza que pueda acompañarte.",
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* FELICIDAD */
+
+    if(containsAny(t,[
+
+        "estoy feliz",
+        "estoy contenta",
+        "estoy emocionada",
+        "estoy emocionado",
+        "me paso algo bueno",
+        "tengo buenas noticias"
+
+    ])){
+
+        return {
+
+            text:"¡Awww, qué bonito! 🥹💕 Me alegra mucho saberlo. Cuéntame qué pasó, quiero saber qué te tiene tan feliz.",
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* ABURRIMIENTO */
+
+    if(containsAny(t,[
+
+        "estoy aburrida",
+        "estoy aburrido",
+        "me aburro",
+        "no tengo nada que hacer"
+
+    ])){
+
+        return {
+
+            text:"JAJA 😭💕 entonces tenemos que solucionar ese aburrimiento. Podemos hablar, jugar a preguntas, inventar una historia, pensar en un maquillaje, buscar ideas de peinados o simplemente conversar. Tú dime qué quieres hacer.",
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* ESTRÉS */
+
+    if(containsAny(t,[
+
+        "estoy estresada",
+        "estoy estresado",
+        "tengo mucho estres",
+        "estoy saturada",
+        "estoy saturado"
+
+    ])){
+
+        return {
+
+            text:"Uf, eso puede sentirse pesado 💕. Intenta no pensar en todo al mismo tiempo. Puedes empezar por lo más urgente y dejar lo demás para después. Si quieres, dime qué te está estresando y lo hablamos juntas.",
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* ANSIEDAD / NERVIOS */
+
+    if(containsAny(t,[
+
+        "tengo ansiedad",
+        "estoy ansiosa",
+        "estoy ansioso",
+        "estoy nerviosa",
+        "estoy nervioso",
+        "me dan nervios",
+        "estoy preocupada",
+        "estoy preocupado"
+
+    ])){
+
+        return {
+
+            text:"Entiendo 💕. Cuando algo nos preocupa, la cabeza puede empezar a pensar en muchas cosas a la vez. Puedes hacer una pausa, respirar lentamente y concentrarte en lo que puedes resolver ahora. Si quieres, cuéntame qué está pasando.",
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* CANSANCIO */
+
+    if(containsAny(t,[
+
+        "estoy cansada",
+        "estoy cansado",
+        "tengo sueño",
+        "no dormi",
+        "dormi mal",
+        "no he dormido"
+
+    ])){
+
+        return {
+
+            text:"Parece que necesitas un poquito de descanso 🌷. Si puedes, tómate un momento para relajarte, tomar agua y dormir cuando tengas la oportunidad. También puedes registrar tus horas de sueño en Mi ciclo.",
+
+            section:"cycle"
+
+        };
+
+    }
+
+
+    /* SKINCARE */
+
+    if(containsAny(t,[
+
+        "skincare",
+        "piel",
+        "cara",
+        "rostro",
+        "cuidado de la piel"
+
+    ])){
+
+        lastTopic = "skincare";
+
+
+        if(containsAny(t,[
+
+            "rutina",
+            "como empezar",
+            "por donde empiezo",
+            "que hago"
+
+        ])){
+
+            return {
+
+                text:"Si estás empezando, puedes mantenerlo sencillo 💕: limpieza suave, hidratación y protector solar durante el día. No necesitas una rutina enorme para cuidar tu piel.",
+
+                section:"skincare"
+
+            };
+
+        }
+
+
+        if(containsAny(t,[
+
+            "acne",
+            "granos",
+            "espinillas"
+
+        ])){
+
+            return {
+
+                text:"Si tienes granitos, intenta no apretarlos ni frotar la piel demasiado 💕. Una rutina suave puede ser una buena base. Si el acné es persistente, doloroso o te preocupa, lo mejor es consultar a un dermatólogo.",
+
+                section:"skincare"
+
+            };
+
+        }
+
+
+        if(containsAny(t,[
+
+            "seca",
+            "reseca",
+            "hidratante",
+            "hidratar"
+
+        ])){
+
+            return {
+
+                text:"Si sientes la piel seca, una hidratación suave puede ayudar 💧. Después de limpiar la piel puedes aplicar una crema hidratante adecuada para ti.",
+
+                section:"skincare"
+
+            };
+
+        }
+
+
+        if(containsAny(t,[
+
+            "protector",
+            "solar",
+            "sol"
+
+        ])){
+
+            return {
+
+                text:"El protector solar ayuda a proteger la piel de la radiación ultravioleta ☀️. Puedes usarlo como parte de tu rutina durante el día y seguir las indicaciones del producto.",
+
+                section:"skincare"
+
+            };
+
+        }
+
+
+        return {
+
+            text:"Siii 💕. Podemos hablar de skincare todo lo que quieras. Puedes preguntarme por rutinas, limpieza, hidratación, protector solar o cuidado básico de la piel.",
+
+            section:"skincare"
+
+        };
+
+    }
+
+
+    /* MAQUILLAJE */
+
+    if(containsAny(t,[
+
+        "maquillaje",
+        "maquillarme",
+        "maquillar",
+        "makeup",
+        "cosmeticos"
+
+    ])){
+
+        lastTopic = "maquillaje";
+
+
+        if(containsAny(t,[
+
+            "sencillo",
+            "simple",
+            "facil",
+            "natural",
+            "todos los dias"
+
+        ])){
+
+            return {
+
+                text:"Siii 💄💕. Para algo sencillo puedes preparar la piel, usar un poco de corrector si quieres, añadir rubor, peinar las cejas y terminar con bálsamo o brillo para labios. En Maquillaje tienes varias opciones.",
+
+                section:"makeup"
+
+            };
+
+        }
+
+
+        if(containsAny(t,[
+
+            "fiesta",
+            "salir",
+            "noche",
+            "especial"
+
+        ])){
+
+            return {
+
+                text:"Para salir puedes hacer algo un poquito más marcado ✨💄. Puedes combinar sombras, delineado y un tono de labios que te guste. Te llevé a Maquillaje para que veas las diferentes opciones.",
+
+                section:"makeup"
+
+            };
+
+        }
+
+
+        if(containsAny(t,[
+
+            "ojos",
+            "sombra",
+            "delineado",
+            "pestañas"
+
+        ])){
+
+            return {
+
+                text:"¡Los ojos tienen muchísimas posibilidades! 👁️✨ Puedes probar sombras suaves, delineados diferentes o simplemente destacar las pestañas. En la sección Maquillaje tienes una opción dedicada a los ojos.",
+
+                section:"makeup"
+
+            };
+
+        }
+
+
+        return {
+
+            text:"Claro 💕. En Maquillaje tienes opciones naturales, sencillas, para salir y también ideas para los ojos. Dime qué estilo quieres y te ayudo a elegir.",
+
+            section:"makeup"
+
+        };
+
+    }
+
+
+    /* CABELLO */
+
+    if(containsAny(t,[
+
+        "cabello",
+        "pelo",
+        "peinado",
+        "trenza",
+        "cola de caballo"
+
+    ])){
+
+        lastTopic = "cabello";
+
+
+        if(containsAny(t,[
+
+            "trenza",
+            "trenzas"
+
+        ])){
+
+            return {
+
+                text:"¡Las trenzas son una opción súper bonita! 🎀 Puedes hacer una trenza sencilla de tres mechones, una lateral o combinarla con una cola. En Cabello tienes tutoriales e ideas.",
+
+                section:"hair"
+
+            };
+
+        }
+
+
+        if(containsAny(t,[
+
+            "caida",
+            "se cae",
+            "se me cae"
+
+        ])){
+
+            return {
+
+                text:"La caída del cabello puede tener muchas causas y no siempre significa lo mismo. Si notas una caída abundante o persistente, sería bueno comentarlo con un profesional de salud. Mientras tanto, intenta tratar el cabello con suavidad.",
+
+                section:"hair"
+
+            };
+
+        }
+
+
+        return {
+
+            text:"💕 Podemos hablar de cabello, cuidados, trenzas, colas y peinados. Si me dices para qué ocasión quieres el peinado, puedo darte algunas ideas.",
+
+            section:"hair"
+
+        };
+
+    }
+
+
+    /* UÑAS */
+
+    if(containsAny(t,[
+
+        "unas",
+        "uñas",
+        "manicure",
+        "manicura",
+        "esmalte"
+
+    ])){
+
+        return {
+
+            text:"💅💕 En Uñas puedes encontrar cuidados básicos, ideas de diseños y una opción de manicure. Si quieres, también puedo darte ideas según el estilo que tengas en mente.",
+
+            section:"nails"
+
+        };
+
+    }
+
+
+    /* CICLO */
+
+    if(containsAny(t,[
+
+        "ciclo menstrual",
+        "menstruacion",
+        "menstruación",
+        "periodo",
+        "regla"
+
+    ])){
+
+        return {
+
+            text:"El ciclo menstrual es un conjunto de cambios que ocurren en el cuerpo y puede variar de una persona a otra y de un mes a otro 🌷. En Mi ciclo puedes registrar fechas, estado de ánimo, sueño, agua y notas personales.",
+
+            section:"cycle"
+
+        };
+
+    }
+
+
+    /* MISIONES */
+
+    if(containsAny(t,[
+
+        "mision",
+        "misiones",
+        "puntos"
+
+    ])){
+
+        return {
+
+            text:"⭐ En Misiones encontrarás pequeños retos de autocuidado. Cuando completas uno ganas puntos y esos puntos sirven para desbloquear logros.",
+
+            section:"missions"
+
+        };
+
+    }
+
+
+    /* LOGROS */
+
+    if(containsAny(t,[
+
+        "logro",
+        "logros",
+        "insignia",
+        "puntos tengo"
+
+    ])){
+
+        return {
+
+            text:`🏆 Actualmente tienes ${points} puntos. Puedes ir a Logros para ver cuáles de las insignias ya desbloqueaste.`,
+
+            section:"achievements"
+
+        };
+
+    }
+
+
+    /* AYUDA */
+
+    if(containsAny(t,[
+
+        "ayuda",
+        "que puedo hacer",
+        "que hay",
+        "como funciona",
+        "que tiene la aplicacion",
+        "que puedo preguntarte"
+
+    ])){
+
+        return {
+
+            text:"Puedes hablar conmigo de muchas cosas 💕. También puedes explorar Skincare, Maquillaje, Cabello, Uñas, Mi ciclo, Misiones y Logros. Y en el chat no tienes que escribir palabras exactas: puedes hablarme de forma normal.",
+
+            section:"home"
+
+        };
+
+    }
+
+
+    /* PREGUNTAS COTIDIANAS */
+
+    if(containsAny(t,[
+
+        "que haces",
+        "que estas haciendo",
+        "como estas",
+        "como te sientes"
+
+    ])){
+
+        return {
+
+            text:"Estoy aquí contigo 🌙💕. No siento las cosas como una persona, pero me encanta poder conversar contigo y ayudarte con lo que necesites. ¿Y tú cómo estás?",
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* OPINIONES */
+
+    if(
+        t.startsWith("que opinas") ||
+        t.startsWith("tu que piensas") ||
+        t.includes("que piensas de")
+    ){
+
+        return {
+
+            text:"Depende un poquito del tema 👀💕. Cuéntame exactamente sobre qué quieres saber mi opinión y lo hablamos.",
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* PREGUNTAS GENERALES */
+
+    if(
+        t.startsWith("por que") ||
+        t.startsWith("porque") ||
+        t.startsWith("como") ||
+        t.startsWith("que es") ||
+        t.startsWith("que significa") ||
+        t.startsWith("para que sirve") ||
+        t.startsWith("cuando") ||
+        t.startsWith("donde") ||
+        t.startsWith("quien")
+    ){
+
+        return {
+
+            text:"Buena pregunta 👀💕. No tengo una respuesta programada para exactamente eso, pero sí puedo intentar ayudarte con lo que sé dentro de esta aplicación. Si me das un poquito más de contexto, puedo entender mejor qué quieres saber.",
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* CONVERSACIÓN CONTINUA */
+
+    if(lastTopic === "maquillaje"){
+
+        return {
+
+            text:"Entiendo 💄💕. Si quieres seguir con el tema del maquillaje, dime qué estás buscando: algo natural, sencillo, para salir, para los ojos o simplemente ideas nuevas.",
+
+            section:"makeup"
+
+        };
+
+    }
+
+
+    if(lastTopic === "skincare"){
+
+        return {
+
+            text:"Siii 💕. Seguimos con skincare. Puedes contarme qué quieres mejorar de tu rutina o preguntarme sobre limpieza, hidratación o protector solar.",
+
+            section:"skincare"
+
+        };
+
+    }
+
+
+    if(lastTopic === "cabello"){
+
+        return {
+
+            text:"💕 Seguimos con cabello. Dime qué quieres hacer: cuidarlo, peinarlo, hacer una trenza, una cola o buscar un peinado diferente.",
+
+            section:"hair"
+
+        };
+
+    }
+
+
+    /* RESPUESTA GENERAL MUCHO MÁS NATURAL */
+
+    const generalResponses = [
+
+        `Te leo, ${name} 💕. Cuéntame un poquito más para entenderte mejor.`,
+
+        "Mmm, interesante 👀💕. Sigue contándome, quiero entender qué quieres decir.",
+
+        "Sí, te estoy leyendo 💕. Puedes explicármelo con tus propias palabras, no tienes que escribirlo perfecto.",
+
+        "Entiendo más o menos lo que quieres decir. Dame un poquito más de contexto y seguimos hablando ✨.",
+
+        "Aquí estoy 🌙💕. Cuéntame qué pasó o qué quieres saber.",
+
+        "Eso suena interesante 👀. Cuéntame un poco más.",
+
+        "No tienes que hablar solamente de belleza conmigo 💕. Puedes contarme lo que quieras y vemos cómo puedo ayudarte.",
+
+        "Te escucho 💕. ¿Qué pasó después?",
+
+        "Mmm, ya veo 👀. Cuéntame más sobre eso.",
+
+        "Estoy aquí contigo 🌷. Dime todo lo que quieras contarme."
+
+    ];
+
+
+    return {
+
+        text:randomItem(generalResponses),
+
+        section:"luna"
+
+    };
+
+}
+
+
+/* =====================================================
+   VIDEOS
+===================================================== */
+
+function openVideo(search){
+
+    const url =
+        "https://www.youtube.com/results?search_query=" +
+        encodeURIComponent(search);
+
+    window.open(url,"_blank");
+
+}
+
+
+/* =====================================================
+   CICLO MENSTRUAL
+===================================================== */
+
+function calculateCycle(){
+
+    const start =
+        document.getElementById("startDate").value;
+
+
+    if(!start){
+
+        alert(
+            "Selecciona la fecha de inicio de tu último periodo."
+        );
+
+        return;
+
+    }
+
+
+    const cycleLength =
+        Number(
+            document.getElementById("cycleLength").value
+        ) || 28;
+
+
+    const periodLength =
+        Number(
+            document.getElementById("periodLength").value
+        ) || 5;
+
+
+    calendarStartDate =
+        new Date(start + "T00:00:00");
+
+
+    currentMonth =
+        new Date(calendarStartDate);
+
+
+    currentMonth.setDate(1);
+
+
+    renderCalendar();
+
+    addPoints(5);
+
+}
+
+
+function renderCalendar(){
+
+    const calendar =
+        document.getElementById("calendar");
+
+    const title =
+        document.getElementById("calendarTitle");
+
+
+    calendar.innerHTML = "";
+
+
+    const year =
+        currentMonth.getFullYear();
+
+    const month =
+        currentMonth.getMonth();
+
+
+    const monthNames = [
+
+        "Enero",
+        "Febrero",
+        "Marzo",
+        "Abril",
+        "Mayo",
+        "Junio",
+        "Julio",
+        "Agosto",
+        "Septiembre",
+        "Octubre",
+        "Noviembre",
+        "Diciembre"
+
+    ];
+
+
+    title.textContent =
+        monthNames[month] + " " + year;
+
+
+    const days = [
+
+        "Lun",
+        "Mar",
+        "Mié",
+        "Jue",
+        "Vie",
+        "Sáb",
+        "Dom"
+
+    ];
+
+
+    days.forEach(dayName => {
+
+        const element =
+            document.createElement("div");
+
+        element.className =
+            "dayName";
+
+        element.textContent =
+            dayName;
+
+        calendar.appendChild(element);
+
+    });
+
+
+    let firstDay =
+        new Date(year,month,1).getDay();
+
+
+    firstDay =
+        firstDay === 0
+        ? 6
+        : firstDay - 1;
+
+
+    for(let i=0;i<firstDay;i++){
+
+        calendar.appendChild(
+            document.createElement("div")
+        );
+
+    }
+
+
+    const daysInMonth =
+        new Date(
+            year,
+            month + 1,
+            0
+        ).getDate();
+
+
+    const cycleLength =
+        Number(
+            document.getElementById("cycleLength").value
+        ) || 28;
+
+
+    const periodLength =
+        Number(
+            document.getElementById("periodLength").value
+        ) || 5;
+
+
+    for(let d=1;d<=daysInMonth;d++){
+
+        const day =
+            document.createElement("div");
+
+
+        day.className =
+            "day";
+
+
+        day.textContent =
+            d;
+
+
+        const date =
+            new Date(year,month,d);
+
+
+        const diff =
+            Math.floor(
+                (date - calendarStartDate) /
+                86400000
+            );
+
+
+        if(diff >= 0){
+
+            const cycleDay =
+                (diff % cycleLength) + 1;
+
+
+            if(cycleDay <= periodLength){
+
+                day.classList.add("period");
+
+            }
+
+
+            if(
+                cycleDay >= 11 &&
+                cycleDay <= 16
+            ){
+
+                day.classList.add("fertile");
+
+            }
+
+
+            if(cycleDay === 14){
+
+                day.classList.add("ovulation");
+
+            }
+
+        }
+
+
+        const today =
+            new Date();
+
+
+        if(isSameDay(date,today)){
+
+            day.classList.add("today");
+
+        }
+
+
+        day.onclick = function(){
+
+            showPhase(date);
+
+        };
+
+
+        calendar.appendChild(day);
+
+    }
+
+}
+
+
+function showPhase(date){
+
+    if(!calendarStartDate){
+
+        return;
+
+    }
+
+
+    const cycleLength =
+        Number(
+            document.getElementById("cycleLength").value
+        ) || 28;
+
+
+    const periodLength =
+        Number(
+            document.getElementById("periodLength").value
+        ) || 5;
+
+
+    const diff =
+        Math.floor(
+            (date - calendarStartDate) /
+            86400000
+        );
+
+
+    const cycleDay =
+        ((diff % cycleLength) + cycleLength) %
+        cycleLength + 1;
+
+
+    let text;
+
+
+    if(cycleDay <= periodLength){
+
+        text =
+            "Esta fecha estaría dentro de los días de menstruación estimados. 🌷";
+
+    }
+    else if(
+        cycleDay >= 11 &&
+        cycleDay <= 16
+    ){
+
+        if(cycleDay === 14){
+
+            text =
+                "Esta fecha coincide aproximadamente con la ovulación estimada. ✨";
+
+        }else{
+
+            text =
+                "Esta fecha estaría cerca de la ventana fértil estimada. 🌸";
+
+        }
+
+    }
+    else{
+
+        text =
+            "Esta fecha estaría fuera de los días estimados de menstruación. 💕";
+
+    }
+
+
+    document.getElementById("phaseInfo")
+        .textContent =
+            text +
+            " Día aproximado del ciclo: " +
+            cycleDay +
+            ". Recuerda que estas fechas son solo una estimación y pueden variar.";
+
+}
+
+
+function previousMonth(){
+
+    currentMonth.setMonth(
+        currentMonth.getMonth() - 1
+    );
+
+    renderCalendar();
+
+}
+
+
+function nextMonth(){
+
+    currentMonth.setMonth(
+        currentMonth.getMonth() + 1
+    );
+
+    renderCalendar();
+
+}
+
+
+function isSameDay(a,b){
+
+    return(
+
+        a.getFullYear() === b.getFullYear() &&
+
+        a.getMonth() === b.getMonth() &&
+
+        a.getDate() === b.getDate()
+
+    );
+
+}
+
+
+/* =====================================================
+   ESTADO DE ÁNIMO
+===================================================== */
+
+function setMood(button,mood){
+
+    document.querySelectorAll(".moodBtn")
+        .forEach(btn => {
+
+            btn.classList.remove("selected");
+
+        });
+
+
+    button.classList.add("selected");
+
+    selectedMood = mood;
+
+}
+
+
+/* =====================================================
+   SÍNTOMAS
+===================================================== */
+
+function toggleSymptom(button){
+
+    button.classList.toggle("selected");
+
+}
+
+
+/* =====================================================
+   GUARDAR REGISTRO
+===================================================== */
+
+function saveDailyRecord(){
+
+    const record = {
+
+        date:new Date().toLocaleDateString(),
+
+        mood:selectedMood,
+
+        energy:
+            document.getElementById("energy").value,
+
+        sleep:
+            document.getElementById("sleep").value,
+
+        water:
+            document.getElementById("water").value,
+
+        diary:
+            document.getElementById("diary").value,
+
+        symptoms:[
+            ...document.querySelectorAll(
+                ".symptomBtn.selected"
+            )
+        ].map(
+            button => button.textContent.trim()
+        )
+
+    };
+
+
+    const records =
+        JSON.parse(
+            localStorage.getItem("beautyDiary") || "[]"
+        );
+
+
+    records.push(record);
+
+
+    localStorage.setItem(
+        "beautyDiary",
+        JSON.stringify(records)
+    );
+
+
+    addPoints(10);
+
+
+    alert(
+        "Tu registro se guardó correctamente 💕"
+    );
+
+}
+
+
+/* =====================================================
+   MISIONES
+===================================================== */
+
+function mission(button,amount){
+
+    const missionBox =
+        button.closest(".mission");
+
+
+    if(
+        missionBox.classList.contains("done")
+    ){
+
+        return;
+
+    }
+
+
+    missionBox.classList.add("done");
+
+    button.textContent =
+        "✓ Hecha";
+
+    button.disabled =
+        true;
+
+
+    addPoints(amount);
+
+}
+
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skin Eliza & Juli 💕</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#fff5fa,#f4edff,#eef7ff);
+    color:#4b4050;
+    min-height:100vh;
+}
+
+/* ================= WELCOME ================= */
+
+#welcome{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+    background:linear-gradient(135deg,#ffdce9,#eadcff,#dff4ff);
+}
+
+.welcomeBox{
+    width:100%;
+    max-width:470px;
+    background:rgba(255,255,255,.94);
+    padding:40px 28px;
+    border-radius:35px;
+    text-align:center;
+    box-shadow:0 20px 50px rgba(120,80,130,.18);
+    animation:appear .8s ease;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.lunaAvatar{
+    width:125px;
+    height:125px;
+    object-fit:cover;
+    border-radius:50%;
+    margin-bottom:18px;
+    background:#ffe5f0;
+    padding:8px;
+    box-shadow:0 8px 25px rgba(180,100,150,.2);
+    animation:floatLuna 3s ease-in-out infinite;
+}
+
+@keyframes floatLuna{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-7px);}
+}
+
+.welcomeBox h1{
+    color:#b85c91;
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.welcomeBox p{
+    line-height:1.6;
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    border:2px solid #f0c8df;
+    border-radius:16px;
+    outline:none;
+    font-size:16px;
+    margin-bottom:15px;
+}
+
+input:focus{
+    border-color:#c982ac;
+}
+
+.mainBtn{
+    border:none;
+    background:linear-gradient(135deg,#d889b5,#a989d8);
+    color:white;
+    padding:14px 25px;
+    border-radius:18px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.mainBtn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(150,100,170,.2);
+}
+
+.mainBtn:active{
+    transform:scale(.97);
+}
+
+/* ================= APP ================= */
+
+#app{
+    display:none;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #f1dbe8;
+    padding:12px 18px;
+}
+
+.headerTop{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:bold;
+    color:#a65388;
+    font-size:19px;
+}
+
+.lunaMini{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#ffe5f0;
+    padding:3px;
+}
+
+.pointsBox{
+    background:#fff0f7;
+    color:#a65388;
+    padding:9px 14px;
+    border-radius:14px;
+    font-weight:bold;
+}
+
+nav{
+    max-width:1200px;
+    margin:12px auto 0;
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding-bottom:3px;
+}
+
+.navBtn{
+    border:none;
+    background:#f8eff6;
+    color:#76566d;
+    padding:9px 13px;
+    border-radius:13px;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:.2s;
+}
+
+.navBtn:hover,
+.navBtn.active{
+    background:#d990b7;
+    color:white;
+}
+
+/* ================= SECTIONS ================= */
+
+main{
+    max-width:1200px;
+    margin:auto;
+    padding:25px 18px 60px;
+}
+
+.appSection{
+    display:none;
+    animation:sectionIn .45s ease;
+}
+
+.appSection.active{
+    display:block;
+}
+
+@keyframes sectionIn{
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.hero{
+    background:white;
+    border-radius:28px;
+    padding:30px;
+    margin-bottom:25px;
+    box-shadow:0 10px 30px rgba(100,70,100,.08);
+}
+
+.hero h1{
+    color:#ad568c;
+    margin-bottom:10px;
+}
+
+.hero p{
+    line-height:1.7;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:25px;
+    overflow:hidden;
+    padding:15px 15px 25px;
+    box-shadow:0 10px 30px rgba(100,70,100,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.cardImage{
+    width:100%;
+    height:190px;
+    object-fit:cover;
+    border-radius:20px;
+    margin-bottom:18px;
+    display:block;
+}
+
+.card h2,
+.card h3,
+.card p{
+    margin-left:10px;
+    margin-right:10px;
+}
+
+.card h2,
+.card h3{
+    color:#aa5b8b;
+    margin-bottom:8px;
+}
+
+.card p{
+    line-height:1.6;
+    margin-bottom:15px;
+}
+
+.sectionCover{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    border-radius:28px;
+    margin-bottom:22px;
+}
+
+/* ================= BUTTONS ================= */
+
+button{
+    font-family:inherit;
+}
+
+.smallBtn{
+    border:none;
+    background:#d990b7;
+    color:white;
+    padding:10px 15px;
+    border-radius:13px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.smallBtn:hover{
+    transform:translateY(-2px);
+    background:#bd6f9c;
+}
+
+/* ================= CHAT ================= */
+
+.chatBox{
+    background:white;
+    border-radius:28px;
+    padding:20px;
+    box-shadow:0 10px 30px rgba(100,70,100,.08);
+}
+
+.chatMessages{
+    height:430px;
+    overflow-y:auto;
+    padding:10px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.message{
+    max-width:82%;
+    padding:13px 16px;
+    border-radius:18px;
+    line-height:1.55;
+    animation:messageIn .3s ease;
+    white-space:pre-line;
+}
+
+@keyframes messageIn{
+    from{
+        opacity:0;
+        transform:translateY(7px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.lunaMessage{
+    align-self:flex-start;
+    background:#f9eaf3;
+}
+
+.userMessage{
+    align-self:flex-end;
+    background:#e9e0f7;
+}
+
+.chatInput{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.chatInput input{
+    margin:0;
+}
+
+.typing{
+    display:flex;
+    gap:4px;
+    padding:10px 15px;
+    background:#f9eaf3;
+    width:max-content;
+    border-radius:16px;
+}
+
+.typing span{
+    width:6px;
+    height:6px;
+    background:#b96b98;
+    border-radius:50%;
+    animation:typing 1s infinite;
+}
+
+.typing span:nth-child(2){
+    animation-delay:.15s;
+}
+
+.typing span:nth-child(3){
+    animation-delay:.3s;
+}
+
+@keyframes typing{
+    0%,100%{
+        opacity:.3;
+        transform:translateY(0);
+    }
+    50%{
+        opacity:1;
+        transform:translateY(-3px);
+    }
+}
+
+/* ================= LISTS ================= */
+
+.infoBox{
+    background:#fff8fc;
+    padding:18px;
+    border-radius:18px;
+    margin:15px 0;
+    line-height:1.7;
+}
+
+.infoBox ul{
+    margin-left:20px;
+}
+
+.infoBox li{
+    margin:7px 0;
+}
+
+/* ================= TRACKERS ================= */
+
+.trackerGrid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:15px;
+}
+
+.tracker{
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(100,70,100,.07);
+}
+
+.tracker h3{
+    color:#a65388;
+    margin-bottom:12px;
+}
+
+.range{
+    width:100%;
+}
+
+.moods{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.moodBtn,
+.symptomBtn{
+    border:2px solid #edd5e3;
+    background:white;
+    padding:9px 12px;
+    border-radius:13px;
+    cursor:pointer;
+}
+
+.moodBtn.selected,
+.symptomBtn.selected{
+    background:#d990b7;
+    color:white;
+    border-color:#d990b7;
+}
+
+textarea{
+    width:100%;
+    min-height:120px;
+    border:2px solid #eed8e6;
+    border-radius:16px;
+    padding:14px;
+    resize:vertical;
+    outline:none;
+    font-family:inherit;
+}
+
+/* ================= CALENDAR ================= */
+
+.calendarControls{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.calendarControls input{
+    flex:1;
+    min-width:170px;
+}
+
+.calendar{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:6px;
+    margin-top:15px;
+}
+
+.dayName{
+    text-align:center;
+    font-weight:bold;
+    color:#a65388;
+    padding:7px;
+}
+
+.day{
+    min-height:55px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:13px;
+    background:#faf5f8;
+    cursor:pointer;
+}
+
+.day.period{
+    background:#efb1c8;
+    color:#75394e;
+}
+
+.day.fertile{
+    background:#dcd0f1;
+}
+
+.day.ovulation{
+    background:#b99ad8;
+    color:white;
+}
+
+.day.today{
+    outline:3px solid #d990b7;
+}
+
+/* ================= MISSIONS ================= */
+
+.mission{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    background:white;
+    padding:18px;
+    border-radius:20px;
+    margin-bottom:12px;
+    box-shadow:0 7px 20px rgba(100,70,100,.07);
+}
+
+.mission.done{
+    opacity:.65;
+}
+
+.mission p{
+    margin-top:5px;
+}
+
+/* ================= ACHIEVEMENTS ================= */
+
+.badges{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+}
+
+.badge{
+    background:white;
+    border-radius:22px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(100,70,100,.07);
+    opacity:.4;
+    transition:.3s;
+}
+
+.badge.unlocked{
+    opacity:1;
+    transform:translateY(-3px);
+}
+
+.badgeIcon{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:650px){
+
+    .welcomeBox{
+        padding:30px 20px;
+    }
+
+    .welcomeBox h1{
+        font-size:26px;
+    }
+
+    header{
+        padding:10px;
+    }
+
+    .brand{
+        font-size:16px;
+    }
+
+    .lunaMini{
+        width:36px;
+        height:36px;
+    }
+
+    main{
+        padding:18px 12px 50px;
+    }
+
+    .hero{
+        padding:22px;
+    }
+
+    .sectionCover{
+        height:180px;
+    }
+
+    .chatMessages{
+        height:380px;
+    }
+
+    .chatInput{
+        flex-direction:column;
+    }
+
+    .calendar{
+        gap:3px;
+    }
+
+    .day{
+        min-height:45px;
+        font-size:13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= BIENVENIDA ================= -->
+
+<div id="welcome">
+
+    <div class="welcomeBox">
+
+        <img
+            class="lunaAvatar"
+            src="https://api.dicebear.com/9.x/bottts-neutral/svg?seed=Luna&backgroundColor=fce7f3"
+            alt="Avatar de Luna"
+        >
+
+        <h1>Skin Eliza & Juli 💕</h1>
+
+        <p>
+            Hola ✨ Soy Luna, tu asistente dentro de la aplicación.
+            Aquí puedes encontrar ideas de skincare, maquillaje,
+            cabello, uñas, bienestar y mucho más.
+        </p>
+
+        <input
+            type="text"
+            id="nameInput"
+            placeholder="Escribe tu nombre"
+            autocomplete="off"
+        >
+
+        <button class="mainBtn" type="button" id="startButton">
+            Comenzar ✨
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= APP ================= -->
+
+<div id="app">
+
+<header>
+
+    <div class="headerTop">
+
+        <div class="brand">
+
+            <img
+                class="lunaMini"
+                src="https://api.dicebear.com/9.x/bottts-neutral/svg?seed=Luna&backgroundColor=fce7f3"
+                alt="Luna"
+            >
+
+            <span>Skin Eliza & Juli 💕</span>
+
+        </div>
+
+        <div class="pointsBox">
+            ⭐ <span id="points">0</span> puntos
+        </div>
+
+    </div>
+
+    <nav>
+
+        <button class="navBtn active" onclick="showSection('home')">Inicio</button>
+        <button class="navBtn" onclick="showSection('luna')">Luna</button>
+        <button class="navBtn" onclick="showSection('skincare')">Skincare</button>
+        <button class="navBtn" onclick="showSection('makeup')">Maquillaje</button>
+        <button class="navBtn" onclick="showSection('hair')">Cabello</button>
+        <button class="navBtn" onclick="showSection('nails')">Uñas</button>
+        <button class="navBtn" onclick="showSection('cycle')">Mi ciclo</button>
+        <button class="navBtn" onclick="showSection('missions')">Misiones</button>
+        <button class="navBtn" onclick="showSection('achievements')">Logros</button>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+<!-- ================= HOME ================= -->
+
+<section id="home" class="appSection active">
+
+    <div class="hero">
+
+        <h1>Hola, <span id="userName"></span> 💕</h1>
+
+        <p>
+            Bienvenida a tu espacio de cuidado y bienestar.
+            Puedes hablar con Luna, explorar las diferentes categorías
+            o completar misiones para conseguir puntos.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <img class="cardImage"
+            src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=700&q=80">
+
+            <h2>Skincare</h2>
+
+            <p>
+                Aprende sobre limpieza, hidratación,
+                protector solar y rutinas sencillas.
+            </p>
+
+            <button class="smallBtn" onclick="showSection('skincare')">
+                Entrar
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <img class="cardImage"
+            src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=700&q=80">
+
+            <h2>Maquillaje</h2>
+
+            <p>
+                Encuentra ideas para maquillajes naturales,
+                sencillos, de salida y para los ojos.
+            </p>
+
+            <button class="smallBtn" onclick="showSection('makeup')">
+                Entrar
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <img class="cardImage"
+            src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&q=80">
+
+            <h2>Cabello</h2>
+
+            <p>
+                Consejos para cuidar tu cabello,
+                peinados, colas y trenzas.
+            </p>
+
+            <button class="smallBtn" onclick="showSection('hair')">
+                Entrar
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <img class="cardImage"
+            src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=700&q=80">
+
+            <h2>Uñas</h2>
+
+            <p>
+                Ideas para cuidar tus uñas y
+                aprender diferentes estilos.
+            </p>
+
+            <button class="smallBtn" onclick="showSection('nails')">
+                Entrar
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <img class="cardImage"
+            src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=700&q=80">
+
+            <h2>Mi ciclo</h2>
+
+            <p>
+                Lleva un registro de tu ciclo,
+                estado de ánimo y algunos hábitos.
+            </p>
+
+            <button class="smallBtn" onclick="showSection('cycle')">
+                Entrar
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <img class="cardImage"
+            src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=700&q=80">
+
+            <h2>Misiones</h2>
+
+            <p>
+                Completa pequeños retos de autocuidado
+                y gana puntos.
+            </p>
+
+            <button class="smallBtn" onclick="showSection('missions')">
+                Ver misiones
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= LUNA ================= -->
+
+<section id="luna" class="appSection">
+
+    <div class="hero">
+
+        <h1>Habla con Luna 🌙</h1>
+
+        <p>
+            Puedes preguntarme sobre belleza, bienestar,
+            la aplicación o simplemente conversar conmigo.
+        </p>
+
+    </div>
+
+    <div class="chatBox">
+
+        <div id="chatMessages" class="chatMessages">
+
+            <div class="message lunaMessage">
+                Hola 💕 Soy Luna. Puedes preguntarme lo que quieras,
+                contarme cómo te sientes o simplemente hablar conmigo.
+                No tienes que hablar solamente de belleza.
+            </div>
+
+        </div>
+
+        <div class="chatInput">
+
+            <input
+                type="text"
+                id="chatInput"
+                placeholder="Escríbele algo a Luna..."
+                autocomplete="off"
+            >
+
+            <button class="mainBtn" id="sendButton">
+                Enviar
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SKINCARE ================= -->
+
+<section id="skincare" class="appSection">
+
+    <img class="sectionCover"
+    src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=80">
+
+    <div class="hero">
+
+        <h1>Skincare ✨</h1>
+
+        <p>
+            El skincare son los cuidados que hacemos para mantener
+            nuestra piel limpia, hidratada y protegida.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🌸 Limpieza</h3>
+            <p>
+                Ayuda a retirar suciedad, sudor y productos acumulados.
+                Lo ideal es hacerlo suavemente y sin frotar demasiado.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>💧 Hidratación</h3>
+            <p>
+                Una crema hidratante ayuda a mantener la piel cómoda
+                y a conservar su humedad.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>☀️ Protector solar</h3>
+            <p>
+                Ayuda a proteger la piel de la radiación ultravioleta.
+                Es importante usarlo durante el día.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🌙 Rutina de noche</h3>
+            <p>
+                Puedes comenzar con una limpieza suave y después
+                aplicar hidratante.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="infoBox">
+
+        <h3>Rutina básica de mañana</h3>
+
+        <ul>
+            <li>Limpieza suave.</li>
+            <li>Hidratante.</li>
+            <li>Protector solar.</li>
+        </ul>
+
+        <br>
+
+        <h3>Rutina básica de noche</h3>
+
+        <ul>
+            <li>Limpieza.</li>
+            <li>Hidratación.</li>
+        </ul>
+
+    </div>
+
+    <button class="smallBtn"
+    onclick="openVideo('rutina skincare sencilla para principiantes')">
+        ▶ Ver tutorial
+    </button>
+
+</section>
+
+
+<!-- ================= MAKEUP ================= -->
+
+<section id="makeup" class="appSection">
+
+    <img class="sectionCover"
+    src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80">
+
+    <div class="hero">
+
+        <h1>Maquillaje 💄</h1>
+
+        <p>
+            El maquillaje puede utilizarse para expresar creatividad,
+            experimentar con colores o simplemente disfrutar de una
+            rutina de belleza.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🌷 Maquillaje sencillo</h3>
+            <p>
+                Una opción natural con hidratación, un poco de corrector
+                si quieres usarlo, rubor y brillo o bálsamo para labios.
+            </p>
+
+            <button class="smallBtn"
+            onclick="openVideo('maquillaje sencillo natural paso a paso')">
+                Tutorial
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>✨ Maquillaje natural</h3>
+            <p>
+                Puedes usar tonos suaves y concentrarte en que el resultado
+                se vea ligero.
+            </p>
+
+            <button class="smallBtn"
+            onclick="openVideo('maquillaje natural juvenil')">
+                Tutorial
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>🌙 Maquillaje para salir</h3>
+            <p>
+                Puedes agregar sombras, delineado o un color diferente
+                en los labios.
+            </p>
+
+            <button class="smallBtn"
+            onclick="openVideo('maquillaje para salir sencillo')">
+                Tutorial
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>👁️ Maquillaje de ojos</h3>
+            <p>
+                Aprende diferentes formas de combinar sombras y hacer
+                un delineado sencillo.
+            </p>
+
+            <button class="smallBtn"
+            onclick="openVideo('maquillaje de ojos sencillo')">
+                Tutorial
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= HAIR ================= -->
+
+<section id="hair" class="appSection">
+
+    <img class="sectionCover"
+    src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80">
+
+    <div class="hero">
+
+        <h1>Cabello 💇‍♀️</h1>
+
+        <p>
+            Cuidar el cabello incluye mantenerlo limpio, desenredarlo
+            con cuidado y evitar maltratarlo innecesariamente.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🌸 Cuidados básicos</h3>
+            <p>
+                Lava tu cabello según lo necesites, desenreda con cuidado
+                y evita usar demasiado calor.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🎀 Trenza</h3>
+            <p>
+                Una trenza es un peinado que se forma entrelazando
+                diferentes mechones de cabello.
+            </p>
+
+            <button class="smallBtn"
+            onclick="openVideo('trenza fácil paso a paso')">
+                Tutorial
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>✨ Cola</h3>
+            <p>
+                Una cola es un peinado sencillo que recoge el cabello
+                en la parte posterior de la cabeza.
+            </p>
+
+            <button class="smallBtn"
+            onclick="openVideo('peinados cola fáciles')">
+                Tutorial
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>💫 Peinados</h3>
+            <p>
+                Puedes probar diferentes peinados dependiendo de la
+                ocasión y de lo cómodo que te resulte.
+            </p>
+
+            <button class="smallBtn"
+            onclick="openVideo('peinados fáciles para cabello')">
+                Ver ideas
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= NAILS ================= -->
+
+<section id="nails" class="appSection">
+
+    <img class="sectionCover"
+    src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1200&q=80">
+
+    <div class="hero">
+
+        <h1>Uñas 💅</h1>
+
+        <p>
+            El cuidado de las uñas incluye mantenerlas limpias,
+            cortarlas con cuidado y evitar lastimarlas.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🌷 Cuidado básico</h3>
+            <p>
+                Mantén tus uñas limpias y evita arrancarlas o morderlas.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🎨 Ideas</h3>
+            <p>
+                Puedes experimentar con colores, diseños sencillos
+                o estilos minimalistas.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>✨ Manicure</h3>
+            <p>
+                Una manicure puede incluir limpieza, limado y decoración
+                de las uñas.
+            </p>
+
+            <button class="smallBtn"
+            onclick="openVideo('manicure sencillo paso a paso')">
+                Tutorial
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CICLO ================= -->
+
+<section id="cycle" class="appSection">
+
+    <img class="sectionCover"
+    src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80">
+
+    <div class="hero">
+
+        <h1>Mi ciclo 🌷</h1>
+
+        <p>
+            Aquí puedes llevar un registro personal de tu ciclo menstrual,
+            emociones, energía, sueño, agua y algunas notas.
+        </p>
+
+    </div>
+
+    <div class="infoBox">
+
+        <h3>¿Qué es el ciclo menstrual?</h3>
+
+        <p>
+            Es el conjunto de cambios que ocurren en el cuerpo durante
+            un ciclo. Puede variar de una persona a otra y también puede
+            cambiar de un mes a otro.
+        </p>
+
+    </div>
+
+    <div class="calendarControls">
+
+        <input type="date" id="startDate">
+
+        <input
+            type="number"
+            id="cycleLength"
+            value="28"
+            min="20"
+            max="45"
+            placeholder="Duración del ciclo"
+        >
+
+        <input
+            type="number"
+            id="periodLength"
+            value="5"
+            min="2"
+            max="10"
+            placeholder="Duración del periodo"
+        >
+
+        <button class="mainBtn" onclick="calculateCycle()">
+            Calcular
+        </button>
+
+    </div>
+
+    <h2 id="calendarTitle"></h2>
+
+    <div id="calendar" class="calendar"></div>
+
+    <div id="phaseInfo" class="infoBox">
+        Selecciona una fecha del calendario para ver información.
+    </div>
+
+    <div class="trackerGrid">
+
+        <div class="tracker">
+
+            <h3>Estado de ánimo</h3>
+
+            <div class="moods">
+
+                <button class="moodBtn" onclick="setMood(this,'Feliz')">
+                    Feliz
+                </button>
+
+                <button class="moodBtn" onclick="setMood(this,'Tranquila')">
+                    Tranquila
+                </button>
+
+                <button class="moodBtn" onclick="setMood(this,'Triste')">
+                    Triste
+                </button>
+
+                <button class="moodBtn" onclick="setMood(this,'Cansada')">
+                    Cansada
+                </button>
+
+                <button class="moodBtn" onclick="setMood(this,'Estresada')">
+                    Estresada
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="tracker">
+
+            <h3>Energía: <span id="energyValue">3</span>/5</h3>
+
+            <input
+                class="range"
+                type="range"
+                id="energy"
+                min="1"
+                max="5"
+                value="3"
+                oninput="document.getElementById('energyValue').textContent=this.value"
+            >
+
+        </div>
+
+
+        <div class="tracker">
+
+            <h3>Sueño: <span id="sleepValue">8</span> horas</h3>
+
+            <input
+                class="range"
+                type="range"
+                id="sleep"
+                min="0"
+                max="12"
+                value="8"
+                oninput="document.getElementById('sleepValue').textContent=this.value"
+            >
+
+        </div>
+
+
+        <div class="tracker">
+
+            <h3>Agua: <span id="waterValue">4</span> vasos</h3>
+
+            <input
+                class="range"
+                type="range"
+                id="water"
+                min="0"
+                max="12"
+                value="4"
+                oninput="document.getElementById('waterValue').textContent=this.value"
+            >
+
+        </div>
+
+    </div>
+
+
+    <div class="infoBox">
+
+        <h3>¿Tienes algún síntoma?</h3>
+
+        <div class="moods">
+
+            <button class="symptomBtn" onclick="toggleSymptom(this)">
+                Cólicos
+            </button>
+
+            <button class="symptomBtn" onclick="toggleSymptom(this)">
+                Dolor de cabeza
+            </button>
+
+            <button class="symptomBtn" onclick="toggleSymptom(this)">
+                Cansancio
+            </button>
+
+            <button class="symptomBtn" onclick="toggleSymptom(this)">
+                Cambios de ánimo
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="infoBox">
+
+        <h3>Mi diario 📝</h3>
+
+        <textarea
+            id="diary"
+            placeholder="Escribe cómo fue tu día..."
+        ></textarea>
+
+        <br><br>
+
+        <button class="mainBtn" onclick="saveDailyRecord()">
+            Guardar registro
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MISIONES ================= -->
+
+<section id="missions" class="appSection">
+
+    <img class="sectionCover"
+    src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80">
+
+    <div class="hero">
+
+        <h1>Misiones ⭐</h1>
+
+        <p>
+            Completa pequeñas actividades para ganar puntos.
+        </p>
+
+    </div>
+
+
+    <div class="mission">
+
+        <div>
+            <strong>💧 Tomar suficiente agua</strong>
+            <p>Recuerda hidratarte durante el día.</p>
+        </div>
+
+        <button class="smallBtn" onclick="mission(this,10)">
+            +10
+        </button>
+
+    </div>
+
+
+    <div class="mission">
+
+        <div>
+            <strong>🧴 Hacer tu rutina de cuidado</strong>
+            <p>Dedica unos minutos a tu rutina.</p>
+        </div>
+
+        <button class="smallBtn" onclick="mission(this,15)">
+            +15
+        </button>
+
+    </div>
+
+
+    <div class="mission">
+
+        <div>
+            <strong>💆‍♀️ Cuidar tu cabello</strong>
+            <p>Haz algo sencillo para cuidar tu cabello.</p>
+        </div>
+
+        <button class="smallBtn" onclick="mission(this,10)">
+            +10
+        </button>
+
+    </div>
+
+
+    <div class="mission">
+
+        <div>
+            <strong>📝 Escribir en tu diario</strong>
+            <p>Escribe cómo te sentiste hoy.</p>
+        </div>
+
+        <button class="smallBtn" onclick="mission(this,15)">
+            +15
+        </button>
+
+    </div>
+
+
+    <div class="mission">
+
+        <div>
+            <strong>🌷 Tomarte un momento para ti</strong>
+            <p>Haz una pausa y descansa un rato.</p>
+        </div>
+
+        <button class="smallBtn" onclick="mission(this,10)">
+            +10
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= LOGROS ================= -->
+
+<section id="achievements" class="appSection">
+
+    <div class="hero">
+
+        <h1>Mis logros 🏆</h1>
+
+        <p>
+            Consigue puntos completando misiones y desbloquea
+            diferentes logros.
+        </p>
+
+    </div>
+
+    <div class="badges">
+
+        <div class="badge" id="badge1">
+            <div class="badgeIcon">🌱</div>
+            <h3>Primer paso</h3>
+            <p>Consigue 10 puntos.</p>
+        </div>
+
+        <div class="badge" id="badge2">
+            <div class="badgeIcon">✨</div>
+            <h3>Comenzando</h3>
+            <p>Consigue 25 puntos.</p>
+        </div>
+
+        <div class="badge" id="badge3">
+            <div class="badgeIcon">💗</div>
+            <h3>Constante</h3>
+            <p>Consigue 50 puntos.</p>
+        </div>
+
+        <div class="badge" id="badge4">
+            <div class="badgeIcon">🌸</div>
+            <h3>Cuidadosa</h3>
+            <p>Consigue 75 puntos.</p>
+        </div>
+
+        <div class="badge" id="badge5">
+            <div class="badgeIcon">👑</div>
+            <h3>Experta</h3>
+            <p>Consigue 100 puntos.</p>
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let points = Number(localStorage.getItem("beautyPoints")) || 0;
+
+let selectedMood = "";
+
+let currentMonth = new Date();
+
+let calendarStartDate = null;
+
+let userName = localStorage.getItem("beautyUser") || "";
+
+let conversation = JSON.parse(
+    localStorage.getItem("lunaConversation") || "[]"
+);
+
+let lastTopic = "";
+
+
+/* =====================================================
+   UTILIDADES
+===================================================== */
+
+function normalizeText(text){
+
+    return text
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g,"")
+        .replace(/[¿?¡!.,;:()[\]"']/g," ")
+        .replace(/\s+/g," ")
+        .trim();
+
+}
+
+
+function containsAny(text,words){
+
+    return words.some(word => text.includes(word));
+
+}
+
+
+function randomItem(array){
+
+    return array[
+        Math.floor(Math.random() * array.length)
+    ];
+
+}
+
+
+/* =====================================================
+   INICIO
+===================================================== */
+
+function startGame(){
+
+    const input = document.getElementById("nameInput");
+
+    const name = input.value.trim();
+
+    if(name === ""){
+
+        input.focus();
+
+        input.placeholder = "Primero escribe tu nombre 💕";
+
+        return;
+
+    }
+
+    userName = name;
+
+    localStorage.setItem("beautyUser",name);
+
+    document.getElementById("userName").textContent = name;
+
+    document.getElementById("welcome").style.display = "none";
+
+    document.getElementById("app").style.display = "block";
+
+    updatePoints();
+
+    showSection("home");
+
+    if(conversation.length === 0){
+
+        addLunaMessage(
+            `¡Holaaa ${name}! 💕 Soy Luna. Me alegra tenerte aquí. Puedes preguntarme sobre belleza, contarme cómo te sientes, preguntarme algo o simplemente conversar conmigo.`
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   CARGAR
+===================================================== */
+
+window.addEventListener("DOMContentLoaded",function(){
+
+    const savedName =
+        localStorage.getItem("beautyUser");
+
+    if(savedName){
+
+        document.getElementById("nameInput").value =
+            savedName;
+
+    }
+
+    updatePoints();
+
+});
+
+
+/* =====================================================
+   EVENTOS
+===================================================== */
+
+document.addEventListener("DOMContentLoaded",function(){
+
+    document.getElementById("startButton")
+        .addEventListener("click",startGame);
+
+    document.getElementById("sendButton")
+        .addEventListener("click",sendMessage);
+
+    document.getElementById("chatInput")
+        .addEventListener("keydown",function(event){
+
+            if(event.key === "Enter"){
+
+                event.preventDefault();
+
+                sendMessage();
+
+            }
+
+        });
+
+    document.getElementById("nameInput")
+        .addEventListener("keydown",function(event){
+
+            if(event.key === "Enter"){
+
+                event.preventDefault();
+
+                startGame();
+
+            }
+
+        });
+
+});
+
+
+/* =====================================================
+   NAVEGACIÓN
+===================================================== */
+
+function showSection(sectionId){
+
+    document.querySelectorAll(".appSection")
+        .forEach(section => {
+
+            section.classList.remove("active");
+
+        });
+
+
+    const selected =
+        document.getElementById(sectionId);
+
+    if(selected){
+
+        selected.classList.add("active");
+
+    }
+
+
+    document.querySelectorAll(".navBtn")
+        .forEach(button => {
+
+            button.classList.remove("active");
+
+            const action =
+                button.getAttribute("onclick");
+
+            if(
+                action &&
+                action.includes("'" + sectionId + "'")
+            ){
+
+                button.classList.add("active");
+
+            }
+
+        });
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   PUNTOS
+===================================================== */
+
+function updatePoints(){
+
+    const element =
+        document.getElementById("points");
+
+    if(element){
+
+        element.textContent = points;
+
+    }
+
+    localStorage.setItem(
+        "beautyPoints",
+        points
+    );
+
+    updateAchievements();
+
+}
+
+
+function addPoints(amount){
+
+    points += amount;
+
+    updatePoints();
+
+}
+
+
+/* =====================================================
+   LOGROS
+===================================================== */
+
+function updateAchievements(){
+
+    const values = [
+
+        [10,"badge1"],
+        [25,"badge2"],
+        [50,"badge3"],
+        [75,"badge4"],
+        [100,"badge5"]
+
+    ];
+
+
+    values.forEach(item => {
+
+        const badge =
+            document.getElementById(item[1]);
+
+        if(!badge) return;
+
+        if(points >= item[0]){
+
+            badge.classList.add("unlocked");
+
+        }else{
+
+            badge.classList.remove("unlocked");
+
+        }
+
+    });
+
+}
+
+
+/* =====================================================
+   CHAT
+===================================================== */
+
+function sendMessage(){
+
+    const input =
+        document.getElementById("chatInput");
+
+    const text =
+        input.value.trim();
+
+    if(text === "") return;
+
+
+    addUserMessage(text);
+
+    input.value = "";
+
+
+    conversation.push({
+        role:"user",
+        text:text
+    });
+
+
+    localStorage.setItem(
+        "lunaConversation",
+        JSON.stringify(conversation)
+    );
+
+
+    const typing =
+        document.createElement("div");
+
+    typing.className = "typing";
+
+    typing.id = "typing";
+
+    typing.innerHTML =
+        "<span></span><span></span><span></span>";
+
+
+    document.getElementById("chatMessages")
+        .appendChild(typing);
+
+    scrollChat();
+
+
+    setTimeout(function(){
+
+        const oldTyping =
+            document.getElementById("typing");
+
+        if(oldTyping){
+
+            oldTyping.remove();
+
+        }
+
+
+        const response =
+            getResponse(text);
+
+
+        addLunaMessage(response.text);
+
+
+        conversation.push({
+            role:"luna",
+            text:response.text
+        });
+
+
+        localStorage.setItem(
+            "lunaConversation",
+            JSON.stringify(conversation)
+        );
+
+
+        if(response.section){
+
+            setTimeout(function(){
+
+                showSection(response.section);
+
+            },500);
+
+        }
+
+    },700 + Math.random()*700);
+
+}
+
+
+function addUserMessage(text){
+
+    const message =
+        document.createElement("div");
+
+    message.className =
+        "message userMessage";
+
+    message.textContent =
+        text;
+
+    document.getElementById("chatMessages")
+        .appendChild(message);
+
+    scrollChat();
+
+}
+
+
+function addLunaMessage(text){
+
+    const message =
+        document.createElement("div");
+
+    message.className =
+        "message lunaMessage";
+
+    message.textContent =
+        text;
+
+    document.getElementById("chatMessages")
+        .appendChild(message);
+
+    scrollChat();
+
+}
+
+
+function scrollChat(){
+
+    const chat =
+        document.getElementById("chatMessages");
+
+    chat.scrollTop =
+        chat.scrollHeight;
+
+}
+
+
+/* =====================================================
+   LUNA - RESPUESTAS
+===================================================== */
+
+function getResponse(originalText){
+
+    const t =
+        normalizeText(originalText);
+
+
+    const name =
+        userName || "💕";
+
+
+    /* SALUDOS */
+
+    if(containsAny(t,[
+
+        "hola",
+        "holaa",
+        "holaaa",
+        "hey",
+        "hello",
+        "buenos dias",
+        "buenas tardes",
+        "buenas noches",
+        "buenas"
+
+    ])){
+
+        return {
+
+            text:randomItem([
+
+                `¡Holaaa ${name}! 💕 ¿Cómo estás? Cuéntame qué tienes en mente.`,
+
+                `¡Hola ${name}! ✨ Aquí estoy. Puedes preguntarme lo que quieras.`,
+
+                `Holiii 💕 Qué bueno verte. ¿Cómo estuvo tu día?`
+
+            ]),
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* QUIÉN ES LUNA */
+
+    if(containsAny(t,[
+
+        "quien eres",
+        "quien es luna",
+        "como te llamas",
+        "cual es tu nombre",
+        "eres una ia",
+        "eres inteligencia artificial",
+        "eres un robot"
+
+    ])){
+
+        return {
+
+            text:"Soy Luna 🌙💕, la asistente de esta aplicación. Estoy aquí para conversar contigo, responder preguntas y ayudarte a usar las diferentes secciones. No soy una persona real, soy un chatbot creado para esta aplicación.",
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* GRACIAS */
+
+    if(containsAny(t,[
+
+        "gracias",
+        "muchas gracias",
+        "te agradezco",
+        "eres genial",
+        "eres buena"
+
+    ])){
+
+        return {
+
+            text:randomItem([
+
+                "Awww 💕 de nada. Me alegra poder ayudarte.",
+
+                "No tienes que agradecerme 🥹💕. Aquí estoy para ayudarte.",
+
+                "De nadaaa ✨. Puedes seguir hablándome cuando quieras."
+
+            ]),
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* DESPEDIDA */
+
+    if(containsAny(t,[
+
+        "adios",
+        "chao",
+        "bye",
+        "nos vemos",
+        "me voy"
+
+    ])){
+
+        return {
+
+            text:`Nos vemos, ${name} 💕. Cuando quieras volver a hablar conmigo, aquí voy a estar. Cuídate mucho ✨.`,
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* SENTIRSE MAL */
+
+    if(containsAny(t,[
+
+        "me siento mal",
+        "estoy triste",
+        "me siento triste",
+        "estoy llorando",
+        "tengo ganas de llorar",
+        "no estoy bien",
+        "me siento rara",
+        "me siento sola",
+        "me siento solo"
+
+    ])){
+
+        return {
+
+            text:"Siento que estés pasando por un momento así 💕. No tienes que fingir que estás bien conmigo. Si quieres, cuéntame qué pasó o qué fue lo que te hizo sentir así. Puedo escucharte y ayudarte a pensar qué podrías hacer ahora mismo. Si esto se siente demasiado difícil, también sería bueno hablar con alguien de confianza que pueda acompañarte.",
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* FELICIDAD */
+
+    if(containsAny(t,[
+
+        "estoy feliz",
+        "estoy contenta",
+        "estoy emocionada",
+        "estoy emocionado",
+        "me paso algo bueno",
+        "tengo buenas noticias"
+
+    ])){
+
+        return {
+
+            text:"¡Awww, qué bonito! 🥹💕 Me alegra mucho saberlo. Cuéntame qué pasó, quiero saber qué te tiene tan feliz.",
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* ABURRIMIENTO */
+
+    if(containsAny(t,[
+
+        "estoy aburrida",
+        "estoy aburrido",
+        "me aburro",
+        "no tengo nada que hacer"
+
+    ])){
+
+        return {
+
+            text:"JAJA 😭💕 entonces tenemos que solucionar ese aburrimiento. Podemos hablar, jugar a preguntas, inventar una historia, pensar en un maquillaje, buscar ideas de peinados o simplemente conversar. Tú dime qué quieres hacer.",
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* ESTRÉS */
+
+    if(containsAny(t,[
+
+        "estoy estresada",
+        "estoy estresado",
+        "tengo mucho estres",
+        "estoy saturada",
+        "estoy saturado"
+
+    ])){
+
+        return {
+
+            text:"Uf, eso puede sentirse pesado 💕. Intenta no pensar en todo al mismo tiempo. Puedes empezar por lo más urgente y dejar lo demás para después. Si quieres, dime qué te está estresando y lo hablamos juntas.",
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* ANSIEDAD / NERVIOS */
+
+    if(containsAny(t,[
+
+        "tengo ansiedad",
+        "estoy ansiosa",
+        "estoy ansioso",
+        "estoy nerviosa",
+        "estoy nervioso",
+        "me dan nervios",
+        "estoy preocupada",
+        "estoy preocupado"
+
+    ])){
+
+        return {
+
+            text:"Entiendo 💕. Cuando algo nos preocupa, la cabeza puede empezar a pensar en muchas cosas a la vez. Puedes hacer una pausa, respirar lentamente y concentrarte en lo que puedes resolver ahora. Si quieres, cuéntame qué está pasando.",
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* CANSANCIO */
+
+    if(containsAny(t,[
+
+        "estoy cansada",
+        "estoy cansado",
+        "tengo sueño",
+        "no dormi",
+        "dormi mal",
+        "no he dormido"
+
+    ])){
+
+        return {
+
+            text:"Parece que necesitas un poquito de descanso 🌷. Si puedes, tómate un momento para relajarte, tomar agua y dormir cuando tengas la oportunidad. También puedes registrar tus horas de sueño en Mi ciclo.",
+
+            section:"cycle"
+
+        };
+
+    }
+
+
+    /* SKINCARE */
+
+    if(containsAny(t,[
+
+        "skincare",
+        "piel",
+        "cara",
+        "rostro",
+        "cuidado de la piel"
+
+    ])){
+
+        lastTopic = "skincare";
+
+
+        if(containsAny(t,[
+
+            "rutina",
+            "como empezar",
+            "por donde empiezo",
+            "que hago"
+
+        ])){
+
+            return {
+
+                text:"Si estás empezando, puedes mantenerlo sencillo 💕: limpieza suave, hidratación y protector solar durante el día. No necesitas una rutina enorme para cuidar tu piel.",
+
+                section:"skincare"
+
+            };
+
+        }
+
+
+        if(containsAny(t,[
+
+            "acne",
+            "granos",
+            "espinillas"
+
+        ])){
+
+            return {
+
+                text:"Si tienes granitos, intenta no apretarlos ni frotar la piel demasiado 💕. Una rutina suave puede ser una buena base. Si el acné es persistente, doloroso o te preocupa, lo mejor es consultar a un dermatólogo.",
+
+                section:"skincare"
+
+            };
+
+        }
+
+
+        if(containsAny(t,[
+
+            "seca",
+            "reseca",
+            "hidratante",
+            "hidratar"
+
+        ])){
+
+            return {
+
+                text:"Si sientes la piel seca, una hidratación suave puede ayudar 💧. Después de limpiar la piel puedes aplicar una crema hidratante adecuada para ti.",
+
+                section:"skincare"
+
+            };
+
+        }
+
+
+        if(containsAny(t,[
+
+            "protector",
+            "solar",
+            "sol"
+
+        ])){
+
+            return {
+
+                text:"El protector solar ayuda a proteger la piel de la radiación ultravioleta ☀️. Puedes usarlo como parte de tu rutina durante el día y seguir las indicaciones del producto.",
+
+                section:"skincare"
+
+            };
+
+        }
+
+
+        return {
+
+            text:"Siii 💕. Podemos hablar de skincare todo lo que quieras. Puedes preguntarme por rutinas, limpieza, hidratación, protector solar o cuidado básico de la piel.",
+
+            section:"skincare"
+
+        };
+
+    }
+
+
+    /* MAQUILLAJE */
+
+    if(containsAny(t,[
+
+        "maquillaje",
+        "maquillarme",
+        "maquillar",
+        "makeup",
+        "cosmeticos"
+
+    ])){
+
+        lastTopic = "maquillaje";
+
+
+        if(containsAny(t,[
+
+            "sencillo",
+            "simple",
+            "facil",
+            "natural",
+            "todos los dias"
+
+        ])){
+
+            return {
+
+                text:"Siii 💄💕. Para algo sencillo puedes preparar la piel, usar un poco de corrector si quieres, añadir rubor, peinar las cejas y terminar con bálsamo o brillo para labios. En Maquillaje tienes varias opciones.",
+
+                section:"makeup"
+
+            };
+
+        }
+
+
+        if(containsAny(t,[
+
+            "fiesta",
+            "salir",
+            "noche",
+            "especial"
+
+        ])){
+
+            return {
+
+                text:"Para salir puedes hacer algo un poquito más marcado ✨💄. Puedes combinar sombras, delineado y un tono de labios que te guste. Te llevé a Maquillaje para que veas las diferentes opciones.",
+
+                section:"makeup"
+
+            };
+
+        }
+
+
+        if(containsAny(t,[
+
+            "ojos",
+            "sombra",
+            "delineado",
+            "pestañas"
+
+        ])){
+
+            return {
+
+                text:"¡Los ojos tienen muchísimas posibilidades! 👁️✨ Puedes probar sombras suaves, delineados diferentes o simplemente destacar las pestañas. En la sección Maquillaje tienes una opción dedicada a los ojos.",
+
+                section:"makeup"
+
+            };
+
+        }
+
+
+        return {
+
+            text:"Claro 💕. En Maquillaje tienes opciones naturales, sencillas, para salir y también ideas para los ojos. Dime qué estilo quieres y te ayudo a elegir.",
+
+            section:"makeup"
+
+        };
+
+    }
+
+
+    /* CABELLO */
+
+    if(containsAny(t,[
+
+        "cabello",
+        "pelo",
+        "peinado",
+        "trenza",
+        "cola de caballo"
+
+    ])){
+
+        lastTopic = "cabello";
+
+
+        if(containsAny(t,[
+
+            "trenza",
+            "trenzas"
+
+        ])){
+
+            return {
+
+                text:"¡Las trenzas son una opción súper bonita! 🎀 Puedes hacer una trenza sencilla de tres mechones, una lateral o combinarla con una cola. En Cabello tienes tutoriales e ideas.",
+
+                section:"hair"
+
+            };
+
+        }
+
+
+        if(containsAny(t,[
+
+            "caida",
+            "se cae",
+            "se me cae"
+
+        ])){
+
+            return {
+
+                text:"La caída del cabello puede tener muchas causas y no siempre significa lo mismo. Si notas una caída abundante o persistente, sería bueno comentarlo con un profesional de salud. Mientras tanto, intenta tratar el cabello con suavidad.",
+
+                section:"hair"
+
+            };
+
+        }
+
+
+        return {
+
+            text:"💕 Podemos hablar de cabello, cuidados, trenzas, colas y peinados. Si me dices para qué ocasión quieres el peinado, puedo darte algunas ideas.",
+
+            section:"hair"
+
+        };
+
+    }
+
+
+    /* UÑAS */
+
+    if(containsAny(t,[
+
+        "unas",
+        "uñas",
+        "manicure",
+        "manicura",
+        "esmalte"
+
+    ])){
+
+        return {
+
+            text:"💅💕 En Uñas puedes encontrar cuidados básicos, ideas de diseños y una opción de manicure. Si quieres, también puedo darte ideas según el estilo que tengas en mente.",
+
+            section:"nails"
+
+        };
+
+    }
+
+
+    /* CICLO */
+
+    if(containsAny(t,[
+
+        "ciclo menstrual",
+        "menstruacion",
+        "menstruación",
+        "periodo",
+        "regla"
+
+    ])){
+
+        return {
+
+            text:"El ciclo menstrual es un conjunto de cambios que ocurren en el cuerpo y puede variar de una persona a otra y de un mes a otro 🌷. En Mi ciclo puedes registrar fechas, estado de ánimo, sueño, agua y notas personales.",
+
+            section:"cycle"
+
+        };
+
+    }
+
+
+    /* MISIONES */
+
+    if(containsAny(t,[
+
+        "mision",
+        "misiones",
+        "puntos"
+
+    ])){
+
+        return {
+
+            text:"⭐ En Misiones encontrarás pequeños retos de autocuidado. Cuando completas uno ganas puntos y esos puntos sirven para desbloquear logros.",
+
+            section:"missions"
+
+        };
+
+    }
+
+
+    /* LOGROS */
+
+    if(containsAny(t,[
+
+        "logro",
+        "logros",
+        "insignia",
+        "puntos tengo"
+
+    ])){
+
+        return {
+
+            text:`🏆 Actualmente tienes ${points} puntos. Puedes ir a Logros para ver cuáles de las insignias ya desbloqueaste.`,
+
+            section:"achievements"
+
+        };
+
+    }
+
+
+    /* AYUDA */
+
+    if(containsAny(t,[
+
+        "ayuda",
+        "que puedo hacer",
+        "que hay",
+        "como funciona",
+        "que tiene la aplicacion",
+        "que puedo preguntarte"
+
+    ])){
+
+        return {
+
+            text:"Puedes hablar conmigo de muchas cosas 💕. También puedes explorar Skincare, Maquillaje, Cabello, Uñas, Mi ciclo, Misiones y Logros. Y en el chat no tienes que escribir palabras exactas: puedes hablarme de forma normal.",
+
+            section:"home"
+
+        };
+
+    }
+
+
+    /* PREGUNTAS COTIDIANAS */
+
+    if(containsAny(t,[
+
+        "que haces",
+        "que estas haciendo",
+        "como estas",
+        "como te sientes"
+
+    ])){
+
+        return {
+
+            text:"Estoy aquí contigo 🌙💕. No siento las cosas como una persona, pero me encanta poder conversar contigo y ayudarte con lo que necesites. ¿Y tú cómo estás?",
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* OPINIONES */
+
+    if(
+        t.startsWith("que opinas") ||
+        t.startsWith("tu que piensas") ||
+        t.includes("que piensas de")
+    ){
+
+        return {
+
+            text:"Depende un poquito del tema 👀💕. Cuéntame exactamente sobre qué quieres saber mi opinión y lo hablamos.",
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* PREGUNTAS GENERALES */
+
+    if(
+        t.startsWith("por que") ||
+        t.startsWith("porque") ||
+        t.startsWith("como") ||
+        t.startsWith("que es") ||
+        t.startsWith("que significa") ||
+        t.startsWith("para que sirve") ||
+        t.startsWith("cuando") ||
+        t.startsWith("donde") ||
+        t.startsWith("quien")
+    ){
+
+        return {
+
+            text:"Buena pregunta 👀💕. No tengo una respuesta programada para exactamente eso, pero sí puedo intentar ayudarte con lo que sé dentro de esta aplicación. Si me das un poquito más de contexto, puedo entender mejor qué quieres saber.",
+
+            section:"luna"
+
+        };
+
+    }
+
+
+    /* CONVERSACIÓN CONTINUA */
+
+    if(lastTopic === "maquillaje"){
+
+        return {
+
+            text:"Entiendo 💄💕. Si quieres seguir con el tema del maquillaje, dime qué estás buscando: algo natural, sencillo, para salir, para los ojos o simplemente ideas nuevas.",
+
+            section:"makeup"
+
+        };
+
+    }
+
+
+    if(lastTopic === "skincare"){
+
+        return {
+
+            text:"Siii 💕. Seguimos con skincare. Puedes contarme qué quieres mejorar de tu rutina o preguntarme sobre limpieza, hidratación o protector solar.",
+
+            section:"skincare"
+
+        };
+
+    }
+
+
+    if(lastTopic === "cabello"){
+
+        return {
+
+            text:"💕 Seguimos con cabello. Dime qué quieres hacer: cuidarlo, peinarlo, hacer una trenza, una cola o buscar un peinado diferente.",
+
+            section:"hair"
+
+        };
+
+    }
+
+
+    /* RESPUESTA GENERAL MUCHO MÁS NATURAL */
+
+    const generalResponses = [
+
+        `Te leo, ${name} 💕. Cuéntame un poquito más para entenderte mejor.`,
+
+        "Mmm, interesante 👀💕. Sigue contándome, quiero entender qué quieres decir.",
+
+        "Sí, te estoy leyendo 💕. Puedes explicármelo con tus propias palabras, no tienes que escribirlo perfecto.",
+
+        "Entiendo más o menos lo que quieres decir. Dame un poquito más de contexto y seguimos hablando ✨.",
+
+        "Aquí estoy 🌙💕. Cuéntame qué pasó o qué quieres saber.",
+
+        "Eso suena interesante 👀. Cuéntame un poco más.",
+
+        "No tienes que hablar solamente de belleza conmigo 💕. Puedes contarme lo que quieras y vemos cómo puedo ayudarte.",
+
+        "Te escucho 💕. ¿Qué pasó después?",
+
+        "Mmm, ya veo 👀. Cuéntame más sobre eso.",
+
+        "Estoy aquí contigo 🌷. Dime todo lo que quieras contarme."
+
+    ];
+
+
+    return {
+
+        text:randomItem(generalResponses),
+
+        section:"luna"
+
+    };
+
+}
+
+
+/* =====================================================
+   VIDEOS
+===================================================== */
+
+function openVideo(search){
+
+    const url =
+        "https://www.youtube.com/results?search_query=" +
+        encodeURIComponent(search);
+
+    window.open(url,"_blank");
+
+}
+
+
+/* =====================================================
+   CICLO MENSTRUAL
+===================================================== */
+
+function calculateCycle(){
+
+    const start =
+        document.getElementById("startDate").value;
+
+
+    if(!start){
+
+        alert(
+            "Selecciona la fecha de inicio de tu último periodo."
+        );
+
+        return;
+
+    }
+
+
+    const cycleLength =
+        Number(
+            document.getElementById("cycleLength").value
+        ) || 28;
+
+
+    const periodLength =
+        Number(
+            document.getElementById("periodLength").value
+        ) || 5;
+
+
+    calendarStartDate =
+        new Date(start + "T00:00:00");
+
+
+    currentMonth =
+        new Date(calendarStartDate);
+
+
+    currentMonth.setDate(1);
+
+
+    renderCalendar();
+
+    addPoints(5);
+
+}
+
+
+function renderCalendar(){
+
+    const calendar =
+        document.getElementById("calendar");
+
+    const title =
+        document.getElementById("calendarTitle");
+
+
+    calendar.innerHTML = "";
+
+
+    const year =
+        currentMonth.getFullYear();
+
+    const month =
+        currentMonth.getMonth();
+
+
+    const monthNames = [
+
+        "Enero",
+        "Febrero",
+        "Marzo",
+        "Abril",
+        "Mayo",
+        "Junio",
+        "Julio",
+        "Agosto",
+        "Septiembre",
+        "Octubre",
+        "Noviembre",
+        "Diciembre"
+
+    ];
+
+
+    title.textContent =
+        monthNames[month] + " " + year;
+
+
+    const days = [
+
+        "Lun",
+        "Mar",
+        "Mié",
+        "Jue",
+        "Vie",
+        "Sáb",
+        "Dom"
+
+    ];
+
+
+    days.forEach(dayName => {
+
+        const element =
+            document.createElement("div");
+
+        element.className =
+            "dayName";
+
+        element.textContent =
+            dayName;
+
+        calendar.appendChild(element);
+
+    });
+
+
+    let firstDay =
+        new Date(year,month,1).getDay();
+
+
+    firstDay =
+        firstDay === 0
+        ? 6
+        : firstDay - 1;
+
+
+    for(let i=0;i<firstDay;i++){
+
+        calendar.appendChild(
+            document.createElement("div")
+        );
+
+    }
+
+
+    const daysInMonth =
+        new Date(
+            year,
+            month + 1,
+            0
+        ).getDate();
+
+
+    const cycleLength =
+        Number(
+            document.getElementById("cycleLength").value
+        ) || 28;
+
+
+    const periodLength =
+        Number(
+            document.getElementById("periodLength").value
+        ) || 5;
+
+
+    for(let d=1;d<=daysInMonth;d++){
+
+        const day =
+            document.createElement("div");
+
+
+        day.className =
+            "day";
+
+
+        day.textContent =
+            d;
+
+
+        const date =
+            new Date(year,month,d);
+
+
+        const diff =
+            Math.floor(
+                (date - calendarStartDate) /
+                86400000
+            );
+
+
+        if(diff >= 0){
+
+            const cycleDay =
+                (diff % cycleLength) + 1;
+
+
+            if(cycleDay <= periodLength){
+
+                day.classList.add("period");
+
+            }
+
+
+            if(
+                cycleDay >= 11 &&
+                cycleDay <= 16
+            ){
+
+                day.classList.add("fertile");
+
+            }
+
+
+            if(cycleDay === 14){
+
+                day.classList.add("ovulation");
+
+            }
+
+        }
+
+
+        const today =
+            new Date();
+
+
+        if(isSameDay(date,today)){
+
+            day.classList.add("today");
+
+        }
+
+
+        day.onclick = function(){
+
+            showPhase(date);
+
+        };
+
+
+        calendar.appendChild(day);
+
+    }
+
+}
+
+
+function showPhase(date){
+
+    if(!calendarStartDate){
+
+        return;
+
+    }
+
+
+    const cycleLength =
+        Number(
+            document.getElementById("cycleLength").value
+        ) || 28;
+
+
+    const periodLength =
+        Number(
+            document.getElementById("periodLength").value
+        ) || 5;
+
+
+    const diff =
+        Math.floor(
+            (date - calendarStartDate) /
+            86400000
+        );
+
+
+    const cycleDay =
+        ((diff % cycleLength) + cycleLength) %
+        cycleLength + 1;
+
+
+    let text;
+
+
+    if(cycleDay <= periodLength){
+
+        text =
+            "Esta fecha estaría dentro de los días de menstruación estimados. 🌷";
+
+    }
+    else if(
+        cycleDay >= 11 &&
+        cycleDay <= 16
+    ){
+
+        if(cycleDay === 14){
+
+            text =
+                "Esta fecha coincide aproximadamente con la ovulación estimada. ✨";
+
+        }else{
+
+            text =
+                "Esta fecha estaría cerca de la ventana fértil estimada. 🌸";
+
+        }
+
+    }
+    else{
+
+        text =
+            "Esta fecha estaría fuera de los días estimados de menstruación. 💕";
+
+    }
+
+
+    document.getElementById("phaseInfo")
+        .textContent =
+            text +
+            " Día aproximado del ciclo: " +
+            cycleDay +
+            ". Recuerda que estas fechas son solo una estimación y pueden variar.";
+
+}
+
+
+function previousMonth(){
+
+    currentMonth.setMonth(
+        currentMonth.getMonth() - 1
+    );
+
+    renderCalendar();
+
+}
+
+
+function nextMonth(){
+
+    currentMonth.setMonth(
+        currentMonth.getMonth() + 1
+    );
+
+    renderCalendar();
+
+}
+
+
+function isSameDay(a,b){
+
+    return(
+
+        a.getFullYear() === b.getFullYear() &&
+
+        a.getMonth() === b.getMonth() &&
+
+        a.getDate() === b.getDate()
+
+    );
+
+}
+
+
+/* =====================================================
+   ESTADO DE ÁNIMO
+===================================================== */
+
+function setMood(button,mood){
+
+    document.querySelectorAll(".moodBtn")
+        .forEach(btn => {
+
+            btn.classList.remove("selected");
+
+        });
+
+
+    button.classList.add("selected");
+
+    selectedMood = mood;
+
+}
+
+
+/* =====================================================
+   SÍNTOMAS
+===================================================== */
+
+function toggleSymptom(button){
+
+    button.classList.toggle("selected");
+
+}
+
+
+/* =====================================================
+   GUARDAR REGISTRO
+===================================================== */
+
+function saveDailyRecord(){
+
+    const record = {
+
+        date:new Date().toLocaleDateString(),
+
+        mood:selectedMood,
+
+        energy:
+            document.getElementById("energy").value,
+
+        sleep:
+            document.getElementById("sleep").value,
+
+        water:
+            document.getElementById("water").value,
+
+        diary:
+            document.getElementById("diary").value,
+
+        symptoms:[
+            ...document.querySelectorAll(
+                ".symptomBtn.selected"
+            )
+        ].map(
+            button => button.textContent.trim()
+        )
+
+    };
+
+
+    const records =
+        JSON.parse(
+            localStorage.getItem("beautyDiary") || "[]"
+        );
+
+
+    records.push(record);
+
+
+    localStorage.setItem(
+        "beautyDiary",
+        JSON.stringify(records)
+    );
+
+
+    addPoints(10);
+
+
+    alert(
+        "Tu registro se guardó correctamente 💕"
+    );
+
+}
+
+
+/* =====================================================
+   MISIONES
+===================================================== */
+
+function mission(button,amount){
+
+    const missionBox =
+        button.closest(".mission");
+
+
+    if(
+        missionBox.classList.contains("done")
+    ){
+
+        return;
+
+    }
+
+
+    missionBox.classList.add("done");
+
+    button.textContent =
+        "✓ Hecha";
+
+    button.disabled =
+        true;
+
+
+    addPoints(amount);
+
+}
+
+</script>
+
+</body>
+</html>
